@@ -1,0 +1,111 @@
+//////////////////////////////
+// Shevy
+// Version: 0.1.0
+// Author: Kyle Shevlin
+// Github: kyleshevlin
+//////////////////////////////
+
+// Shevy Default Map
+//////////////////////////////
+$shevy-defaults: (
+  'base-font-size': 16px,
+  'base-line-height': 1.5,
+  'font-scale': (3, 2.5, 2, 1.5, 1.25, 1)
+);
+
+// User Settings
+//////////////////////////////
+$shevy: () !default;
+$shevy: map-merge($shevy-defaults, $shevy);
+
+// Dynamic Variables
+$base-font-unit: unit(map-get($shevy, 'base-font-size'));
+$base-font-size: map-get($shevy, 'base-font-size');
+$base-line-height: map-get($shevy, 'base-line-height');
+$base-spacing: $base-font-size * $base-line-height;
+$font-scale-length: length(map-get($shevy, 'font-scale'));
+
+// Functions
+//////////////////////////////
+
+// Get font size from the font-scale
+@function get-font-scale-value($iterator) {
+  @return nth(map-get($shevy, 'font-scale'), $iterator);
+}
+
+// Base Unit Multiplier
+// Creates a 1(base-unit) to use for multiplying
+@function base-unit-multiplier() {
+  @if $base-font-unit == 'px' {
+    @return 1px;
+  } @else if $base-font-unit == 'em' {
+    @return 1em;
+  } @else if $base-font-unit == 'rem' {
+    @return 1rem;
+  } @else {
+    @warn "Sorry, but that's an unsupported unit of measure.";
+  }
+}
+
+// Base-spacing
+// allows the user to create spacing as multiples or dividends of the $base-spacing variable
+@function base-spacing($factor: 1) {
+  @return $base-spacing * $factor;
+}
+
+// Headings
+//////////////////////////////
+@mixin headings {
+  @for $i from 1 through $font-scale-length {
+    h#{$i} {
+      // Font size is base-font-size * font-scale[index]
+      font-size: $base-font-size * get-font-scale-value($i);
+
+      // pxs and rems are different than ems
+      @if $base-font-unit == 'px' or $base-font-unit == 'rem' {
+        @if ((get-font-scale-value($i) * $base-font-size) <= $base-spacing) {
+          line-height: $base-spacing;
+        } @else {
+          $x: 1;
+          @while ($base-spacing * $x) < (get-font-scale-value($i) * $base-font-size) {
+            $x: $x + 1;
+          }
+          line-height: $base-spacing * $x;
+        }
+      } @else if $base-font-unit == 'em' {
+        @if ((get-font-scale-value($i) * base-unit-multiplier()) <= $base-spacing) {
+          line-height: $base-spacing / (get-font-scale-value($i) * base-unit-multiplier()); // * base-unit-multiplier() removes base unit
+        } @else {
+          $y: 1;
+          @while ($base-spacing * $y) < (get-font-scale-value($i) * base-unit-multiplier()) {
+            $y: $y + 1;
+          }
+          line-height: ($base-spacing * $y) / (get-font-scale-value($i) * base-unit-multiplier()); // * base-unit-multiplier removes base unit
+        }
+      } @else {
+        @warn "Sorry, but that's an unsupported unit of measure.";
+      }
+
+      @if $base-font-unit == 'px' or $base-font-unit == 'rem' {
+        margin-bottom: $base-spacing;
+      } @else if $base-font-unit == 'em' {
+        margin-bottom: $base-spacing / get-font-scale-value($i);
+      } @else {
+        @warn "Sorry, but that's an unsupported unit of measure.";
+      }
+    }
+  }
+}
+
+// Paragraphs
+//////////////////////////////
+@mixin paragraph {
+  p {
+    font-size: $base-font-size * get-font-scale-value($font-scale-length);
+    line-height: $base-spacing / get-font-scale-value($font-scale-length);
+
+    & + & {
+      margin-top: $base-spacing / get-font-scale-value($font-scale-length);
+    }
+  }
+}
