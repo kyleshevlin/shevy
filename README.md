@@ -6,6 +6,7 @@ Vertical rhythm made easy.
 
 1. Import `_shevy.scss` into your project.
 2. Define a `$shevy: ();` Sass map, like so:
+
     ```
     $shevy: (
         'base-font-size': 1em,
@@ -13,10 +14,13 @@ Vertical rhythm made easy.
         'font-scale': (3, 2.5, 2, 1.5, 1.25, 1)
     );
     ```
+
 3. Call the `headings` mixin in your code
+
     ```
     @include headings;
     ```
+
 4. Marvel at your beautiful typography. Assuming you've put something on the page. You have put something on the page, haven't you?
 
 ## Support
