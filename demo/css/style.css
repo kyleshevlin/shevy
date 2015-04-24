@@ -1,0 +1,77 @@
+.shevy h1 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+.shevy h2 {
+  font-size: 2.5em;
+  line-height: 1.2;
+  margin-bottom: 0.6em;
+}
+.shevy h3 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-bottom: 0.75em;
+}
+.shevy h4 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em;
+}
+.shevy h5 {
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin-bottom: 1.2em;
+}
+.shevy h6 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+.shevy p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.shevy p + .shevy p {
+  margin-top: 1.5em;
+}
+
+.large h1 {
+  font-size: 6em;
+  line-height: 1;
+  margin-bottom: 0.25em;
+}
+.large h2 {
+  font-size: 5em;
+  line-height: 1.2;
+  margin-bottom: 0.3em;
+}
+.large h3 {
+  font-size: 4em;
+  line-height: 1.125;
+  margin-bottom: 0.375em;
+}
+.large h4 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+.large h5 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-bottom: 0.75em;
+}
+.large h6 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+.large p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.large p + .large p {
+  margin-top: 1.5em;
+}
+
+/*# sourceMappingURL=style.css.map */

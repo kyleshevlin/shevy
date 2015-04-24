@@ -1,0 +1,15 @@
+@import 'lib/shevy';
+
+.shevy {
+  @include headings;
+  @include paragraph;
+}
+
+$large: (
+  'base-font-scale': (6, 5, 4, 3, 2, 1)
+);
+
+.large {
+  @include headings($large);
+  @include paragraph($large);
+}
