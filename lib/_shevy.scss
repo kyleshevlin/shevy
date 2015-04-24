@@ -42,9 +42,9 @@ $shevy: map-merge($shevy-defaults, $shevy);
 
 // Base-spacing
 // allows the user to create spacing as multiples or dividends of the $base-spacing variable
-@function base-spacing($factor: 1) {
-  @return $_base-spacing * $factor;
-}
+// @function base-spacing($factor: 1) {
+//   @return $_base-spacing * $factor;
+// }
 
 // Headings
 //////////////////////////////
@@ -116,10 +116,15 @@ $shevy: map-merge($shevy-defaults, $shevy);
 
   p {
     font-size: $_base-font-size * get-font-scale-value($_font-scale-length, $current-map);
-    line-height: $_base-spacing / get-font-scale-value($_font-scale-length, $current-map);
 
-    & + & {
-      margin-top: $_base-spacing / get-font-scale-value($_font-scale-length, $current-map);
+    @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
+      line-height: $_base-spacing;
+      margin-bottom: $_base-spacing;
+    } @else if $_base-font-unit == 'em' {
+      line-height: $_base-spacing / get-font-scale-value($_font-scale-length, $current-map);
+      margin-bottom: $_base-spacing / get-font-scale-value($_font-scale-length, $current-map);
+    } @else {
+      @warn "Sorry, that unit type is not supported."
     }
   }
 }

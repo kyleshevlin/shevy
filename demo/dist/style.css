@@ -1,3 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.shevy {
+  background-image: url(http://basehold.it/i/24);
+}
 .shevy h1 {
   font-size: 3em;
   line-height: 1;
@@ -31,11 +39,12 @@
 .shevy p {
   font-size: 1em;
   line-height: 1.5em;
-}
-.shevy p + .shevy p {
-  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
+.large {
+  background-image: url(http://basehold.it/i/24);
+}
 .large h1 {
   font-size: 6em;
   line-height: 1;
@@ -69,7 +78,85 @@
 .large p {
   font-size: 1em;
   line-height: 1.5em;
+  margin-bottom: 1.5em;
 }
-.large p + .large p {
-  margin-top: 1.5em;
+
+.responsive {
+  background-image: url(http://basehold.it/i/24);
+}
+.responsive h1 {
+  font-size: 32px;
+  line-height: 48px;
+  margin-bottom: 24px;
+}
+.responsive h2 {
+  font-size: 28px;
+  line-height: 48px;
+  margin-bottom: 24px;
+}
+.responsive h3 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.responsive h4 {
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.responsive h5 {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.responsive h6 {
+  font-size: 12px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+.responsive p {
+  font-size: 12px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 600px) {
+  .responsive {
+    background-image: url(http://basehold.it/i/54);
+  }
+  .responsive h1 {
+    font-size: 4.5em;
+    line-height: 1.5;
+    margin-bottom: 0.75em;
+  }
+  .responsive h2 {
+    font-size: 3.75em;
+    line-height: 1.8;
+    margin-bottom: 0.9em;
+  }
+  .responsive h3 {
+    font-size: 3em;
+    line-height: 1.125;
+    margin-bottom: 1.125em;
+  }
+  .responsive h4 {
+    font-size: 2.625em;
+    line-height: 1.28571;
+    margin-bottom: 1.28571em;
+  }
+  .responsive h5 {
+    font-size: 1.875em;
+    line-height: 1.8;
+    margin-bottom: 1.8em;
+  }
+  .responsive h6 {
+    font-size: 1.5em;
+    line-height: 2.25;
+    margin-bottom: 2.25em;
+  }
+  .responsive p {
+    font-size: 1.5em;
+    line-height: 2.25em;
+    margin-bottom: 2.25em;
+  }
 }

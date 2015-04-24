@@ -1,6 +1,12 @@
 @import 'lib/shevy';
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .shevy {
+  background-image: url(http://basehold.it/i/24);
   @include headings;
   @include paragraph;
 }
@@ -10,6 +16,31 @@ $large: (
 );
 
 .large {
+  background-image: url(http://basehold.it/i/24);
   @include headings($large);
   @include paragraph($large);
+}
+
+$responsive-small: (
+  'base-font-size': 16px,
+  'base-font-scale': (2, 1.75, 1.5, 1.25, 1, .75)
+);
+
+$responsive-large: (
+  'base-font-size': 1.5em,
+  'base-font-scale': (3, 2.5, 2, 1.75, 1.25, 1)
+);
+
+.responsive {
+  background-image: url(http://basehold.it/i/24);
+  @include headings($responsive-small);
+  @include paragraph($responsive-small);
+}
+
+@media (min-width: 600px) {
+  .responsive {
+    background-image: url(http://basehold.it/i/54);
+    @include headings($responsive-large);
+    @include paragraph($responsive-large);
+  }
 }
