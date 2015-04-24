@@ -7,6 +7,18 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json')
   });
 
+  // Local Server
+  grunt.config.merge({
+    connect: {
+      server: {
+        options: {
+          base      : 'demo',
+          keepalive : true
+        }
+      }
+    }
+  });
+
   // Style config
   grunt.config.merge({
     autoprefixer: {
