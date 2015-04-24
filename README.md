@@ -1,12 +1,15 @@
-*Doesn't work yet! We'll get there.
-
 # Shevy
 
-Vertical rhythm made easy.
+Vertical rhythm made easy. Typography how you want it where you want it.
 
 ## Usage
 
-1. Import `_shevy.scss` into your project.
+1. Import `lib/_shevy.scss` into your project.
+
+    ```
+    @import 'lib/shevy';
+    ```
+
 2. Define a `$shevy: ();` Sass map, like so:
 
     ```
@@ -25,6 +28,8 @@ Vertical rhythm made easy.
 
 4. Marvel at your beautiful typography. Assuming you've put something on the page. You have put something on the page, haven't you?
 
+5. You can also pass a custom map into the `headings` and `paragraph` mixin. This should enable you to make custom typography per module or responsive typography per breakpoint.
+
 ## Support
 
 Currently, Shevy supports `px`, `em`, and `rem` usage. Additional support for other measurement units may be added in the future.
@@ -33,8 +38,6 @@ Currently, Shevy supports `px`, `em`, and `rem` usage. Additional support for ot
 
 Here are some features/situations we are hoping to account for in the near future.
 
-- Add a demo page
-- Responsive behavior &mdash; add the ability to call new maps per breakpoints to redefine scale at different widths.
 - Exception mixins &mdash; The ability to create font sizes that override the main typographical settings.
 - Recall mixins &mdash; If you use the `font-size: 0` hack for `inline-block` layouts, we would like you to be able to write a simple mixin with a heading or paragraph to output the font-sizes for that. Ex: `@include recall(h2)`.
 - Handle situations with less than 6 font-sizes
