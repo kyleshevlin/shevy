@@ -1,26 +1,91 @@
 @import 'lib/shevy';
 
+$breakpoints: (
+  'alpha': 540px,
+  'bravo': 1100px
+);
+
+@mixin bp($bp, $min_max: 'min') {
+  $value: map-get($breakpoints, $bp);
+
+  @if $value != null {
+    @media only screen and (#{$min_max}-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, `#{bp}` wasn't found in $breakpoints.";
+  }
+}
+
+//////////////////////////////
+// Base
+//////////////////////////////
+html {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
+.container {
+  width: 90%;
+  margin: 1em auto;
+
+  @include bp(alpha) {
+    width: 67%;
+  }
+
+  @include bp(bravo) {
+    width: 50%;
+  }
+}
+
+//////////////////////////////
+// Typography
+//////////////////////////////
+@include headings;
+@include paragraph;
+
+//////////////////////////////
+// Shevy Block
+//////////////////////////////
 .shevy {
-  background-image: url(http://basehold.it/i/24);
+  background-image: url(http://basehold.it/i/24/);
   @include headings;
   @include paragraph;
 }
 
+//////////////////////////////
+// Large Block
+//////////////////////////////
 $large: (
+  'base-font-size': 20px,
+  'base-line-height': 2,
   'base-font-scale': (6, 5, 4, 3, 2, 1)
 );
 
 .large {
-  background-image: url(http://basehold.it/i/24);
+  background-image: url(http://basehold.it/i/40/);
   @include headings($large);
   @include paragraph($large);
 }
 
+//////////////////////////////
+// Responsive Block
+//////////////////////////////
 $responsive-small: (
   'base-font-size': 16px,
   'base-font-scale': (2, 1.75, 1.5, 1.25, 1, .75)
@@ -32,14 +97,12 @@ $responsive-large: (
 );
 
 .responsive {
-  background-image: url(http://basehold.it/i/24);
+  background-image: url(http://basehold.it/i/24/);
   @include headings($responsive-small);
   @include paragraph($responsive-small);
-}
 
-@media (min-width: 600px) {
-  .responsive {
-    background-image: url(http://basehold.it/i/54);
+  @include bp(alpha) {
+    background-image: url(http://basehold.it/i/54/);
     @include headings($responsive-large);
     @include paragraph($responsive-large);
   }

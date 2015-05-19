@@ -1,10 +1,82 @@
+html {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
+.container {
+  width: 90%;
+  margin: 1em auto;
+}
+@media only screen and (min-width: 540px) {
+  .container {
+    width: 67%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  .container {
+    width: 50%;
+  }
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  line-height: 1.2;
+  margin-bottom: 0.6em;
+}
+
+h3 {
+  font-size: 2em;
+  line-height: 1.5;
+  margin-bottom: 0.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin-bottom: 1em;
+}
+
+h5 {
+  font-size: 1.25em;
+  line-height: 1.2;
+  margin-bottom: 1.2em;
+}
+
+h6 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 .shevy {
-  background-image: url(http://basehold.it/i/24);
+  background-image: url(http://basehold.it/i/24/);
 }
 .shevy h1 {
   font-size: 3em;
@@ -43,46 +115,46 @@
 }
 
 .large {
-  background-image: url(http://basehold.it/i/24);
+  background-image: url(http://basehold.it/i/40/);
 }
 .large h1 {
-  font-size: 6em;
-  line-height: 1;
-  margin-bottom: 0.25em;
+  font-size: 120px;
+  line-height: 120px;
+  margin-bottom: 40px;
 }
 .large h2 {
-  font-size: 5em;
-  line-height: 1.2;
-  margin-bottom: 0.3em;
+  font-size: 100px;
+  line-height: 120px;
+  margin-bottom: 40px;
 }
 .large h3 {
-  font-size: 4em;
-  line-height: 1.125;
-  margin-bottom: 0.375em;
+  font-size: 80px;
+  line-height: 80px;
+  margin-bottom: 40px;
 }
 .large h4 {
-  font-size: 3em;
-  line-height: 1;
-  margin-bottom: 0.5em;
+  font-size: 60px;
+  line-height: 80px;
+  margin-bottom: 40px;
 }
 .large h5 {
-  font-size: 2em;
-  line-height: 1.5;
-  margin-bottom: 0.75em;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 40px;
 }
 .large h6 {
-  font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 1.5em;
+  font-size: 20px;
+  line-height: 40px;
+  margin-bottom: 40px;
 }
 .large p {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 1.5em;
+  font-size: 20px;
+  line-height: 40px;
+  margin-bottom: 40px;
 }
 
 .responsive {
-  background-image: url(http://basehold.it/i/24);
+  background-image: url(http://basehold.it/i/24/);
 }
 .responsive h1 {
   font-size: 32px;
@@ -119,10 +191,9 @@
   line-height: 24px;
   margin-bottom: 24px;
 }
-
-@media (min-width: 600px) {
+@media only screen and (min-width: 540px) {
   .responsive {
-    background-image: url(http://basehold.it/i/54);
+    background-image: url(http://basehold.it/i/54/);
   }
   .responsive h1 {
     font-size: 4.5em;
