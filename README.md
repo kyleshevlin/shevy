@@ -30,6 +30,12 @@ Vertical rhythm made easy. Typography how you want it where you want it.
 
 5. You can also pass a custom map into the `headings` and `paragraph` mixin. This should enable you to make custom typography per module or responsive typography per breakpoint.
 
+## Other Options
+
+### paragraph-scale
+
+A map can be passed a key of `'paragraph-scale'` and set similarly to the 'base-font-scale'. If this is not provided, the value defaults to false and Shevy utilizes the last value passed into the `'base-font-scale'` list as the scale for paragraphs.
+
 ## Support
 
 Currently, Shevy supports `px`, `em`, and `rem` usage. Additional support for other measurement units may be added in the future.
