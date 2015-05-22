@@ -34,7 +34,7 @@ $shevy: (
 
 ### paragraph-scale
 
-A map can be passed a key of `'paragraph-scale'` and set similarly to the 'base-font-scale'. If this is not provided, the value defaults to false and Shevy utilizes the last value passed into the `'base-font-scale'` list as the scale for paragraphs.
+The `$shevy` map can also be given a key of `'paragraph-scale'` and set similarly to the 'base-font-scale'. If this is not provided, the value defaults to false and Shevy utilizes the last value passed into the `'base-font-scale'` list as the scale for paragraphs.
 
 ## Support
 
