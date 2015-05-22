@@ -14,9 +14,9 @@ Vertical rhythm made easy. Typography how you want it, where you want it.
 
 ```
 $shevy: (
-    'base-font-size': 1em,
-    'base-line-height': 1.5,
-    'base-font-scale': (3, 2.5, 2, 1.5, 1.25, 1)
+    base-font-size: 1em,
+    base-line-height: 1.5,
+    base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1)
 );
 ```
 
@@ -30,11 +30,32 @@ $shevy: (
 
 5. You can also pass a custom map into the `headings` and `paragraph` mixin. This should enable you to make custom typography per module or responsive typography per breakpoint.
 
-## Other Options
+## Defaults
+
+```
+$shevy: (
+    base-font-size: 1em,
+    base-line-height: 1.5,
+    base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1),
+    paragraph-scale: false
+);
+```
+
+### base-font-size
+
+The `base-font-size` key is intended to be the standard font-size for the project. `font-scale` multiplies its value against the `base-font-size`.
+
+### base-line-height
+
+The `base-line-height` is the standard line-height. If this is set in pixels, this will be the base-spacing value for Shevy. If it is provided as a factor, such as `1.5`, it will be multiplied by the `base-font-size` to generate the base-spacing value.
+
+### base-font-scale
+
+This is a Sass list of factors to multiply by the `base-font-size` to generate the font-sizes for headings and paragraphs (if a `paragraph-scale` is not provided).
 
 ### paragraph-scale
 
-The `$shevy` map can also be given a key of `'paragraph-scale'` and set similarly to the 'base-font-scale'. If this is not provided, the value defaults to false and Shevy utilizes the last value passed into the `'base-font-scale'` list as the scale for paragraphs.
+This is intended for use in setting the size of the paragraph font-size, though by default is set to false. When set to false, Shevy uses the last value passed in the `font-scale` list to size the paragraph.
 
 ## Support
 
