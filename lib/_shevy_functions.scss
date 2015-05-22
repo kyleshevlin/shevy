@@ -21,12 +21,12 @@
   }
 }
 
-// Base-spacing
+// TODO Base-spacing
 // allows the user to create spacing as multiples or dividends of the $base-spacing variable
-@function base-spacing($factor: 1) {
-  $_base-font-size: map-get($_shevy-current-map, 'base-font-size');
-  $_base-line-height: map-get($_shevy-current-map, 'base-line-height');
-  $_base-spacing: $_base-font-size * $_base-line-height;
+// @function base-spacing($factor: 1) {
+//   $_base-font-size: map-get($_shevy-current-map, 'base-font-size');
+//   $_base-line-height: map-get($_shevy-current-map, 'base-line-height');
+//   $_base-spacing: $_base-font-size * $_base-line-height;
 
-  @return $_base-spacing * $factor;
-}
+//   @return $_base-spacing * $factor;
+// }

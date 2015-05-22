@@ -77,9 +77,17 @@
   $_base-spacing: $_base-font-size * $_base-line-height;
   $_font-scale-length: length(map-get($_shevy-current-map, 'base-font-scale'));
 
+  $_paragraph-scale: map-get($_shevy-current-map, 'paragraph-scale');
+
+  @if $_paragraph-scale == false {
+    $_paragraph-scale: get-font-scale-value($_font-scale-length, $_shevy-current-map);
+  } @else {
+    $_paragraph-scale: map-get($_shevy-current-map, 'paragraph-scale');
+  }
+
   p {
     // We use the last supplied font-size in the current map
-    font-size: $_base-font-size * get-font-scale-value($_font-scale-length, $_shevy-current-map);
+    font-size: $_base-font-size * $_paragraph-scale;
 
     @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
       line-height: $_base-spacing;
