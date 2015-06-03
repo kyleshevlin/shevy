@@ -1,0 +1,6 @@
+{
+  "name": "Shevy",
+  "description": "Microlibrary for perfect typography and vertical rhythm.",
+  "tags": ["scss", "typography", "mixins", "responsive", "design"],
+  "website": "https://github.com/kyleshevlin/shevy"
+}
