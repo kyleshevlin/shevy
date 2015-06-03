@@ -37,7 +37,8 @@ $shevy: (
     base-font-size: 1em,
     base-line-height: 1.5,
     base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1),
-    paragraph-scale: false
+    paragraph-scale: false,
+    margin-bottom: true
 );
 ```
 
@@ -56,6 +57,10 @@ This is a Sass list of factors to multiply by the `base-font-size` to generate t
 ### paragraph-scale
 
 This is intended for use in setting the size of the paragraph font-size, though by default is set to false. When set to false, Shevy uses the last value passed in the `font-scale` list to size the paragraph.
+
+### margin-bottom
+
+By default, margin bottoms are added to all typography to maintain the vertical rhythm. However, you may wish to remove these. In that case, setting `margin-bottom: false` in your map will set the `margin-bottom` property to `0` for each element.
 
 ## Support
 
