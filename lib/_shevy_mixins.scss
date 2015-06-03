@@ -15,6 +15,7 @@
   $_base-line-height: map-get($_shevy-current-map, 'base-line-height');
   $_base-spacing: $_base-font-size * $_base-line-height;
   $_font-scale-length: length(map-get($_shevy-current-map, 'base-font-scale'));
+  $_margin_bottom_bool: map-get($_shevy-current-map, 'margin-bottom');
 
   @for $i from 1 through $_font-scale-length {
     h#{$i} {
@@ -53,12 +54,16 @@
       }
 
       // Margin-bottom
-      @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
-        margin-bottom: $_base-spacing;
-      } @else if $_base-font-unit == 'em' {
-        margin-bottom: $_base-spacing / get-font-scale-value($i, $_shevy-current-map);
+      @if $_margin-bottom-bool {
+        @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
+          margin-bottom: $_base-spacing;
+        } @else if $_base-font-unit == 'em' {
+          margin-bottom: $_base-spacing / get-font-scale-value($i, $_shevy-current-map);
+        } @else {
+          @warn "Sorry, but that's an unsupported unit of measure.";
+        }
       } @else {
-        @warn "Sorry, but that's an unsupported unit of measure.";
+        margin-bottom: 0;
       }
     }
   }
@@ -76,8 +81,8 @@
   $_base-line-height: map-get($_shevy-current-map, 'base-line-height');
   $_base-spacing: $_base-font-size * $_base-line-height;
   $_font-scale-length: length(map-get($_shevy-current-map, 'base-font-scale'));
-
   $_paragraph-scale: map-get($_shevy-current-map, 'paragraph-scale');
+  $_margin_bottom_bool: map-get($_shevy-current-map, 'margin-bottom');
 
   @if $_paragraph-scale == false {
     $_paragraph-scale: get-font-scale-value($_font-scale-length, $_shevy-current-map);
@@ -89,14 +94,26 @@
     // We use the last supplied font-size in the current map
     font-size: $_base-font-size * $_paragraph-scale;
 
+    // Line Height
     @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
       line-height: $_base-spacing;
-      margin-bottom: $_base-spacing;
     } @else if $_base-font-unit == 'em' {
       line-height: $_base-spacing / get-font-scale-value($_font-scale-length, $_shevy-current-map);
-      margin-bottom: $_base-spacing / get-font-scale-value($_font-scale-length, $_shevy-current-map);
     } @else {
       @warn "Sorry, but that's an unsupported unit of measure.";
+    }
+
+    // Margin Bottom
+    @if $_margin-bottom-bool {
+      @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
+        margin-bottom: $_base-spacing;
+      } @else if $_base-font-unit == 'em' {
+        margin-bottom: $_base-spacing / get-font-scale-value($_font-scale-length, $_shevy-current-map);
+      } @else {
+        @warn "Sorry, but that's an unsupported unit of measure.";
+      }
+    } @else {
+      margin-bottom: 0;
     }
   }
 }
