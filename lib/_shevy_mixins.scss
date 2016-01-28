@@ -36,7 +36,7 @@
             $x: $x + 1; // increment counter
           }
           // Half increments, while technically breaking the baseline, are more aesthetically pleasing and still mathematically useful
-          line-height: $_base-spacing * ($x * .5));
+          line-height: ($_base-spacing * ($x * .5));
         }
       } @else if $_base-font-unit == 'em' {
 
