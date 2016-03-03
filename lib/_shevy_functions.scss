@@ -3,8 +3,8 @@
 //////////////////////////////
 
 // Get font size from the font-scale
-@function get-font-scale-value($iterator, $a-map: $shevy) {
-  @return nth(map-get($a-map, 'base-font-scale'), $iterator);
+@function get-font-scale-value($iterator, $map: $shevy) {
+  @return nth(map-get($map, 'base-font-scale'), $iterator);
 }
 
 // Base Unit Multiplier
@@ -21,12 +21,19 @@
   }
 }
 
-// TODO Base-spacing
-// allows the user to create spacing as multiples or dividends of the $base-spacing variable
-// @function base-spacing($factor: 1) {
-//   $_base-font-size: map-get($_shevy-current-map, 'base-font-size');
-//   $_base-line-height: map-get($_shevy-current-map, 'base-line-height');
-//   $_base-spacing: $_base-font-size * $_base-line-height;
+// Base-spacing
+// Allows the user to create spacing as multiples or dividends of the $base-spacing variable
+@function base-spacing($factor: 1, $map: $shevy) {
+  // Merge defaults with provided map,
+  $_current_map: map-merge($shevy-defaults, $map);
 
-//   @return $_base-spacing * $factor;
-// }
+  $_base-font-size: map-get($_current_map, 'base-font-size');
+  $_base-line-height: map-get($_current_map, 'base-line-height');
+  $_base-spacing: $_base-font-size * $_base-line-height;
+
+  @return $_base-spacing * $factor;
+}
+
+@function bs($factor: 1, $map: $shevy) {
+  @return base-spacing($factor, $map);
+}
