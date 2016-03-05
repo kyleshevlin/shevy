@@ -1,34 +1,104 @@
 # Shevy
 
-Vertical rhythm made easy. Typography how you want it, where you want it.
+A simple, configurable Sass library for typography with perfect vertical rhythm.
 
-## Usage
+## Installation
 
-1. Import `lib/_shevy.scss` into your project.
+If you want to add this to a project, copy the `lib/` directory into the appropriate location in your app.
 
 ```
+$ cp -R lib/ path/to/your/project
+```
+
+Then `@import` the `_shevy.scss` file into your project.
+
+```scss
 @import 'lib/shevy';
 ```
 
-2. Define a `$shevy: ();` Sass map, like so:
+Be sure to place this _before_ any call to Shevy mixins and functions so that the Sass compiles without error.
+
+#### Ruby on Rails
+
+If you are using Ruby on Rails and would like to add Shevy to your project, you're in luck. Shevy is also a [Ruby Gem](https://rubygems.org/gems/shevy) and the repo can be found [here](https://github.com/kyleshevlin/shevy-gem). In your `Gemfile` add:
+
+```ruby
+gem 'shevy'
+```
+
+Then run:
 
 ```
+$ bundle install
+```
+
+Once the gem is installed, add Shevy to your `application.css` file.
+
+```
+*= require shevy
+```
+
+And _then_ `@import` the `_shevy.scss` file into your project with:
+
+```scss
+@import 'shevy';
+```
+
+Once again, be sure to place this _before_ any call to Shevy mixins or functions so that the Sass compiles without error.
+
+## Usage
+
+Shevy comes packaged with default settings. So the simplest usage of Shevy is to call two mixins.
+
+```scss
+@include headings;
+@include paragraph;
+```
+
+This will output styles for all headings (`h1` to `h6`) and the `p` tag. However, you may find that the default settings don't suit your project. Shevy allows you to configure settings globally and/or at the component level. Here's how:
+
+### Global
+
+Shevy mixins take a Sass map as one of the arguments. The default map is the `$shevy` map (`$shevy` is always defined, even if you don't define your own). Thus, to make global changes to your configuration, simply define your own `$shevy` map to override the default settings. Like so:
+
+```scss
 $shevy: (
-    base-font-size: 1em,
+    base-font-size: 14px,
     base-line-height: 1.5,
-    base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1)
+    base-font-scale: (2.5, 2.1, 1.8, 1.5, 1.25, 1)
 );
 ```
 
-3. Call the `headings` mixin in your code
+Then, `@include` the `headings` mixin in your code
 
 ```
 @include headings;
 ```
 
-4. Marvel at your beautiful typography. Assuming you've put something on the page. You have put something on the page, haven't you?
+Now marvel at your beautiful typography. Assuming you've put something on the page. You have put something on the page, haven't you?
 
-5. You can also pass a custom map into the `headings` and `paragraph` mixin. This should enable you to make custom typography per module or responsive typography per breakpoint.
+### Component Level
+
+You can also pass a custom map into the `headings` and `paragraph` mixin. This should enable you to make custom typography per module or responsive typography per breakpoint.
+
+Define a new Shevy map:
+
+```scss
+$shevy-small: (
+  base-font-size: 12px,
+  base-line-height: 1.3,
+  base-font-scale: (2, 1.8, 1.6, 1.4, 1.2, 1)
+);
+```
+
+Then call the `headings` or `paragraph` mixin passing your new map to them:
+
+```scss
+.my_component {
+  @include headings($shevy-small);
+  @include paragraph($shevy-small);
+}
+```
 
 ## Defaults
 
@@ -61,6 +131,44 @@ This is intended for use in setting the size of the paragraph font-size, though 
 ### margin-bottom
 
 By default, margin bottoms are added to all typography to maintain the vertical rhythm. However, you may wish to remove these. In that case, setting `margin-bottom: false` in your map will set the `margin-bottom` property to `0` for each element.
+
+## Functions
+
+Currently, Shevy has one additonal function that can be useful to your project. Maintaining vertical rhythm also means that your other page elements (such as a `button`) should have margins that are multiples or divedends of your vertical rhythm. Thus, Shevy provides the `base-spacing()` function (with an alias of `bs()` for those who enjoy brevity).
+
+The `base-spacing()` function takes two arguments, a `$factor` and a `$map`. The `$factor` defaults to 1 and the `$map` defaults to `$shevy`. Thus, the simplest call of this function looks like this:
+
+```scss
+.my_button {
+  margin-bottom: base-spacing();
+}
+```
+
+And outputs:
+
+```css
+.my_button {
+  margin-bottom: 1.5em;
+}
+```
+
+The output value is derived by multiplying the `base-font-size` and the `base-line-height` values of the map together. Multiply these by the `$factor` provided and you get multiples or dividends of your vertical rhythm. This function can be used to set paddings as well (Remember, `base-spacing()` has an alias).
+
+```scss
+.my_button {
+  padding: bs(.25) bs(.5);
+  margin-bottom: bs();
+}
+```
+
+Or at a component level, remember our `$shevy-small` map from above:
+
+```scss
+.my_component {
+  padding: bs(.25, $shevy-small) bs(.5, $shevy-small);
+  margin-bottom: bs(1, $shevy-small);
+}
+```
 
 ## Support
 
