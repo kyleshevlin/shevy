@@ -1,0 +1,30 @@
+{
+  "authors": [
+    "Kyle Shevlin <kyle.a.shevlin@gmail.com>"
+  ],
+  "description": "A simple, configurable Sass library for typography with perfect vertical rhythm.",
+  "homepage": "https://kyleshevlin.github.io/shevy",
+  "ignore": [
+    "**/.*",
+    "demo",
+    "Gruntfile.js",
+    "package.json",
+    "sache.json"
+  ],
+  "keywords": [
+    "css",
+    "mixins",
+    "sass",
+    "scss",
+    "typography",
+    "rhythm"
+  ],
+  "license": "MIT",
+  "main": "lib/_shevy.scss",
+  "name": "shevy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyleshevlin/shevy.git"
+  },
+  "version": "1.0.0"
+}
