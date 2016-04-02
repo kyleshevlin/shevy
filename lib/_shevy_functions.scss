@@ -37,3 +37,9 @@
 @function bs($factor: 1, $map: $shevy) {
   @return base-spacing($factor, $map);
 }
+
+// Line height
+@function line-height($map: $shevy) {
+  $_shevy: map-merge($shevy-defaults, $map);
+  @return map-get($_shevy, 'base-line-height');
+}
