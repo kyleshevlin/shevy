@@ -1,123 +1,115 @@
-//////////////////////////////
-// Shevy Mixins
-//////////////////////////////
-
-// Headings
-//////////////////////////////
+///
+/// Output the headings (h1, h2...) with the calculated settings
+/// @access public
+/// @param {Map} $map [$shevy]
+/// @output Headings with calculated settings
+///
 @mixin headings($map: $shevy) {
-  // Merge defaults with provided map,
-  $_current_map: map-merge($shevy-defaults, $map);
+  $settings: settings($map);
+  $base-font-unit: base-font-unit($settings);
+  $base-unit-multiplier: base-unit-multiplier($base-font-unit);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+  $base-spacing: base-spacing();
+  $font-scale-length: length(map-get($settings, 'base-font-scale'));
+  $font-unit-ems-bool: if($base-font-unit == 'em', true, false);
+  $margin-bottom-bool: map-get($settings, 'margin-bottom');
 
-  // create private vars for map settings
-  $_base-font-unit: unit(map-get($_current_map, 'base-font-size'));
-  $_base-unit-multiplier: base-unit-multiplier($_base-font-unit);
-  $_base-font-size: map-get($_current_map, 'base-font-size');
-  $_base-line-height: map-get($_current_map, 'base-line-height');
-  $_base-spacing: $_base-font-size * $_base-line-height;
-  $_font-scale-length: length(map-get($_current_map, 'base-font-scale'));
-  $_margin_bottom_bool: map-get($_current_map, 'margin-bottom');
+  @for $i from 1 through $font-scale-length {
+    $font-scale-value: get-font-scale-value($i, $settings);
+    $font-size: $base-font-size * $font-scale-value;
+    $line-height: null;
+    $margin-bottom: 0;
 
-  @for $i from 1 through $_font-scale-length {
+    // Line Height Calculation
+    @if $font-size <= $base-spacing {
+      $line-height: $base-spacing
+    } @else {
+      $increment: 1.5;
+
+      // Use half increments, while technically breaking the baseline, they are more aesthetically pleasing and still mathematically sound
+      @while base-spacing($increment) <= $font-size {
+        $increment: $increment + .5;
+      }
+
+      @if $font-unit-ems-bool {
+        $line-height: base-spacing($increment) / $font-size;
+      } @else {
+        $line-height: base-spacing($increment);
+      }
+    }
+
+    // Margin Bottom Calculation
+    @if $margin-bottom-bool {
+      @if $font-unit-ems-bool {
+        $margin-bottom: $base-spacing / $font-size * $base-unit-multiplier;
+      } @else {
+        $margin-bottom: $base-spacing;
+      }
+    }
+
+    // Headings Output
     h#{$i} {
-      // Font size is base-font-size * font-scale[index]
-      font-size: $_base-font-size * get-font-scale-value($i, $_current_map);
-
-      // Line-height calculation for pxs and rems is different than ems
-      @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
-
-        // if font-size is greater than base-spacing
-        // more base-spacing will be necessary
-        @if ((get-font-scale-value($i, $_current_map) * $_base-font-size) <= $_base-spacing) {
-          line-height: $_base-spacing;
-        } @else {
-          $x: 1; // simple counter
-          // Half increments, while technically breaking the baseline, are more aesthetically pleasing and still mathematically useful
-          @while ($_base-spacing * ($x * .5)) <= (get-font-scale-value($i, $_current_map) * $_base-font-size) {
-            $x: $x + 1; // increment counter
-          }
-          // Half increments, while technically breaking the baseline, are more aesthetically pleasing and still mathematically useful
-          line-height: ($_base-spacing * ($x * .5));
-        }
-      } @else if $_base-font-unit == 'em' {
-
-        // if font-size is greater than base spacing
-        // more base-spacing will be necessary
-        @if ((get-font-scale-value($i, $_current_map) * $_base-unit-multiplier) <= $_base-spacing) {
-          line-height: $_base-spacing / (get-font-scale-value($i, $_current_map) * $_base-unit-multiplier); // * $_base-unit-multiplier removes base unit
-        } @else {
-          $y: 1; // simple counter, but Sass keeps vars in global scope, so we can't use $x
-          // Half increments, while technically breaking the baseline, are more aesthetically pleasing and still mathematically useful
-          @while ($_base-spacing * ($y * .5)) <= (get-font-scale-value($i, $_current_map) * $_base-unit-multiplier) {
-            $y: $y + 1; // increment counter
-          }
-          // Half increments, while technically breaking the baseline, are more aesthetically pleasing and still mathematically useful
-          line-height: ($_base-spacing * ($y * .5)) / (get-font-scale-value($i, $_current_map) * $_base-unit-multiplier); // * $_base-unit-multiplier removes base unit
-        }
-      } @else {
-        @warn "Sorry, but that's an unsupported unit of measure.";
-      }
-
-      // Margin-bottom
-      @if $_margin-bottom-bool {
-        @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
-          margin-bottom: $_base-spacing;
-        } @else if $_base-font-unit == 'em' {
-          margin-bottom: $_base-spacing / get-font-scale-value($i, $_current_map);
-        } @else {
-          @warn "Sorry, but that's an unsupported unit of measure.";
-        }
-      } @else {
-        margin-bottom: 0;
-      }
+      font-size: $font-size;
+      line-height: $line-height;
+      margin-bottom: $margin-bottom;
     }
   }
 }
 
-// Paragraphs
-//////////////////////////////
-@mixin paragraph($supplied-map-for-paragraphs: $shevy) {
-  // Merge defaults with provided map,
-  $_current_map: map-merge($shevy-defaults, $supplied-map-for-paragraphs);
+///
+/// Output font-size and line-height for body element
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @output Font-size and line-height for body element
+///
+@mixin body($map: $shevy) {
+  $settings: settings($map);
+  $base-font-unit: base-font-unit($settings);
+  $base-unit-muliplier: base-unit-multiplier($base-font-unit);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
 
-  // create private vars for map settings
-  $_base-font-unit: unit(map-get($_current_map, 'base-font-size'));
-  $_base-font-size: map-get($_current_map, 'base-font-size');
-  $_base-line-height: map-get($_current_map, 'base-line-height');
-  $_base-spacing: $_base-font-size * $_base-line-height;
-  $_font-scale-length: length(map-get($_current_map, 'base-font-scale'));
-  $_paragraph-scale: map-get($_current_map, 'paragraph-scale');
-  $_margin_bottom_bool: map-get($_current_map, 'margin-bottom');
+  // Output
+  body {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+  }
+}
 
-  @if $_paragraph-scale == false {
-    $_paragraph-scale: get-font-scale-value($_font-scale-length, $_current_map);
-  } @else {
-    $_paragraph-scale: map-get($_current_map, 'paragraph-scale');
+///
+/// Output font-size, line-height and margin-bottom for p, ol, ul, and pre elements
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @output Font-size, line-height and margin-bottom for p, ol, ul, and pre elements
+///
+@mixin content($map: $shevy) {
+  $settings: settings($map);
+  $base-font-unit: base-font-unit($settings);
+  $base-unit-multiplier: base-unit-multiplier($base-font-unit);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+  $base-spacing: base-spacing();
+  $margin-bottom: 0;
+  $margin-bottom-bool: map-get($settings, 'margin-bottom');
+  $font-unit-ems-bool: if($base-font-unit == 'em', true, false);;
+
+  // Margin Bottom
+  @if $margin-bottom-bool {
+    @if $font-unit-ems-bool {
+      $margin-bottom: $base-spacing / $base-font-size * $base-unit-multiplier;
+    } @else {
+      $margin-bottom: $base-spacing;
+    }
   }
 
-  p {
-    // We use the last supplied font-size in the current map
-    font-size: $_base-font-size * $_paragraph-scale;
-
-    // Line Height
-    @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
-      line-height: $_base-spacing;
-    } @else if $_base-font-unit == 'em' {
-      line-height: $_base-spacing / get-font-scale-value($_font-scale-length, $_current_map);
-    } @else {
-      @warn "Sorry, but that's an unsupported unit of measure.";
-    }
-
-    // Margin Bottom
-    @if $_margin-bottom-bool {
-      @if $_base-font-unit == 'px' or $_base-font-unit == 'rem' {
-        margin-bottom: $_base-spacing;
-      } @else if $_base-font-unit == 'em' {
-        margin-bottom: $_base-spacing / get-font-scale-value($_font-scale-length, $_current_map);
-      } @else {
-        @warn "Sorry, but that's an unsupported unit of measure.";
-      }
-    } @else {
-      margin-bottom: 0;
-    }
+  // Content Elements
+  p,
+  ol,
+  ul,
+  pre {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    margin-bottom: $margin-bottom;
   }
 }
