@@ -113,3 +113,19 @@
     margin-bottom: $margin-bottom;
   }
 }
+
+///
+/// Temporarily use a different settings map
+/// @access public
+/// @param {Map} $map A map consisting of some or all $shevy settings.
+/// @content [Merges the $map with the $shevy settings and uses this new map to do all shevy math within this content block. Restores the $shevy settings after the block.]
+///
+@mixin with-settings($map) {
+  $settings: settings();
+  $old: $settings;
+  $shevy: map-merge($old, $map) !global;
+
+  @content;
+
+  $shevy: $old !global
+}
