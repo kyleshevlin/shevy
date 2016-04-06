@@ -80,7 +80,7 @@ p {
 }
 
 .shevy {
-  background-image: url(http://basehold.it/i/24/);
+/*  background-image: url(http://basehold.it/i/24/);*/
 }
 .shevy h1 {
   font-size: 3em;
@@ -119,7 +119,7 @@ p {
 }
 
 .large {
-  background-image: url(http://basehold.it/i/30/);
+  /*background-image: url(http://basehold.it/i/30/);*/
 }
 .large h1 {
   font-size: 90px;
@@ -170,7 +170,7 @@ p {
 }
 
 .responsive {
-  background-image: url(http://basehold.it/i/21/);
+  /*background-image: url(http://basehold.it/i/21/);*/
 }
 .responsive h1 {
   font-size: 28px;
@@ -209,7 +209,7 @@ p {
 }
 @media only screen and (min-width: 520px) {
   .responsive {
-    background-image: url(http://basehold.it/i/24/);
+   /* background-image: url(http://basehold.it/i/24/);*/
   }
   .responsive h1 {
     font-size: 32px;
@@ -249,7 +249,7 @@ p {
 }
 @media only screen and (min-width: 769px) {
   .responsive {
-    background-image: url(http://basehold.it/i/54/);
+    /*background-image: url(http://basehold.it/i/54/);*/
   }
   .responsive h1 {
     font-size: 3.75em;
@@ -289,7 +289,7 @@ p {
 }
 @media only screen and (min-width: 1025px) {
   .responsive {
-    background-image: url(http://basehold.it/i/54/);
+    /*background-image: url(http://basehold.it/i/54/);*/
   }
   .responsive h1 {
     font-size: 90px;
@@ -329,7 +329,7 @@ p {
 }
 @media only screen and (min-width: 1350px) {
   .responsive {
-    background-image: url(http://basehold.it/i/72/);
+    /*background-image: url(http://basehold.it/i/72/);*/
   }
   .responsive h1 {
     font-size: 144px;
