@@ -9,7 +9,12 @@
     "demo",
     "Gruntfile.js",
     "package.json",
-    "sache.json"
+    "sache.json",
+    "shevy.gemspec",
+    "Rakefile",
+    "Gemfile",
+    "lib/",
+    "bin/"
   ],
   "keywords": [
     "css",
@@ -20,11 +25,11 @@
     "rhythm"
   ],
   "license": "MIT",
-  "main": "lib/_shevy.scss",
+  "main": "core/_shevy.scss",
   "name": "shevy",
   "repository": {
     "type": "git",
     "url": "https://github.com/kyleshevlin/shevy.git"
   },
-  "version": "1.0.0"
+  "version": "2.0.0"
 }
