@@ -1,0 +1,20 @@
+///
+/// Default $shevy settings
+/// @prop $shevy-defaults
+/// @prop {Value} $shevy-defaults.base-font-size [1em] Base font size of the project; Can be in px, em, or rem
+/// @prop {Number} $shevy-defaults.base-line-height [1.5] Base line-height of the project; Should be a unitless value.
+/// @prop {Map} $shevy-defaults.base-font-scale [(3, 2.5, 2, 1.5, 1.25, 1)] Font scale for project, largest to smallest, i.e the base font size multiplied by this number will result in the font-sizes for h1, h2, h3... in order.
+/// @prop {Boolean} $shevy-defaults.margin-bottom [true] Determines if headings and content elements will have a margin-bottom set on them.
+///
+$shevy-defaults: (
+  base-font-size: 1em,
+  base-line-height: 1.5,
+  base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1),
+  margin-bottom: true
+);
+
+// Empty $shevy set as default in case one is not supplied by user
+$shevy: () !default;
+
+// Merge defaults with $shevy to create base level map
+$shevy: map-merge($shevy-defaults, $shevy);

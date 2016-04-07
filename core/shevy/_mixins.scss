@@ -1,0 +1,131 @@
+///
+/// Output the headings (h1, h2...) with the calculated settings
+/// @access public
+/// @param {Map} $map [$shevy]
+/// @output Headings with calculated settings
+///
+@mixin headings($map: $shevy) {
+  $settings: settings($map);
+  $base-font-unit: base-font-unit($settings);
+  $base-unit-multiplier: base-unit-multiplier($base-font-unit);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+  $base-spacing: base-spacing();
+  $font-scale-length: length(map-get($settings, 'base-font-scale'));
+  $font-unit-ems-bool: if($base-font-unit == 'em', true, false);
+  $margin-bottom-bool: map-get($settings, 'margin-bottom');
+
+  @for $i from 1 through $font-scale-length {
+    $font-scale-value: get-font-scale-value($i, $settings);
+    $font-size: $base-font-size * $font-scale-value;
+    $line-height: null;
+    $margin-bottom: 0;
+
+    // Line Height Calculation
+    @if $font-size <= $base-spacing {
+      $line-height: $base-spacing
+    } @else {
+      $increment: 1.5;
+
+      // Use half increments, while technically breaking the baseline, they are more aesthetically pleasing and still mathematically sound
+      @while base-spacing($increment) <= $font-size {
+        $increment: $increment + .5;
+      }
+
+      @if $font-unit-ems-bool {
+        $line-height: base-spacing($increment) / $font-size;
+      } @else {
+        $line-height: base-spacing($increment);
+      }
+    }
+
+    // Margin Bottom Calculation
+    @if $margin-bottom-bool {
+      @if $font-unit-ems-bool {
+        $margin-bottom: $base-spacing / $font-size * $base-unit-multiplier;
+      } @else {
+        $margin-bottom: $base-spacing;
+      }
+    }
+
+    // Headings Output
+    h#{$i} {
+      font-size: $font-size;
+      line-height: $line-height;
+      margin-bottom: $margin-bottom;
+    }
+  }
+}
+
+///
+/// Output font-size and line-height for body element
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @output Font-size and line-height for body element
+///
+@mixin body($map: $shevy) {
+  $settings: settings($map);
+  $base-font-unit: base-font-unit($settings);
+  $base-unit-muliplier: base-unit-multiplier($base-font-unit);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+
+  // Output
+  body {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+  }
+}
+
+///
+/// Output font-size, line-height and margin-bottom for p, ol, ul, and pre elements
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @output Font-size, line-height and margin-bottom for p, ol, ul, and pre elements
+///
+@mixin content($map: $shevy) {
+  $settings: settings($map);
+  $base-font-unit: base-font-unit($settings);
+  $base-unit-multiplier: base-unit-multiplier($base-font-unit);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+  $base-spacing: base-spacing();
+  $margin-bottom: 0;
+  $margin-bottom-bool: map-get($settings, 'margin-bottom');
+  $font-unit-ems-bool: if($base-font-unit == 'em', true, false);;
+
+  // Margin Bottom
+  @if $margin-bottom-bool {
+    @if $font-unit-ems-bool {
+      $margin-bottom: $base-spacing / $base-font-size * $base-unit-multiplier;
+    } @else {
+      $margin-bottom: $base-spacing;
+    }
+  }
+
+  // Content Elements
+  p,
+  ol,
+  ul,
+  pre {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    margin-bottom: $margin-bottom;
+  }
+}
+
+///
+/// Temporarily use a different settings map
+/// @access public
+/// @param {Map} $map A map consisting of some or all $shevy settings.
+/// @content [Merges the $map with the $shevy settings and uses this new map to do all shevy math within this content block. Restores the $shevy settings after the block.]
+///
+@mixin with-settings($map) {
+  $settings: settings();
+  $old: $settings;
+  $shevy: map-merge($old, $map) !global;
+
+  @content;
+
+  $shevy: $old !global
+}

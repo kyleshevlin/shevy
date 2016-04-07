@@ -1,0 +1,128 @@
+///
+/// Returns the font scale value at a given position in the list
+/// @access private
+/// @param {Number} $position Position of scale value to retrieve
+/// @param {Map} $map [$shevy] Map from which to retrieve font scale value
+/// @return {Number} Font scale value at given position
+///
+@function get-font-scale-value($position, $map: $shevy) {
+  $settings: settings($map);
+  @return nth(map-get($settings, 'base-font-scale'), $position);
+}
+
+///
+/// Returns the base font size of current settings
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Value} Value of base-font-size setting
+///
+@function base-font-size($map: $shevy) {
+  $settings: settings($map);
+  @return map-get($settings, 'base-font-size');
+}
+
+///
+/// @alias base-font-size
+///
+@function bsf($map: $shevy) {
+  @return base-font-size($map);
+}
+
+///
+/// Returns the base font unit of the current settings
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {String} Unit value of base font size
+///
+@function base-font-unit($map: $shevy) {
+  $settings: settings($map);
+  @return unit(map-get($settings, 'base-font-size'));
+}
+
+///
+/// @alias base-font-unit
+///
+@function bfu($map: $shevy) {
+  @return base-font-unit($map);
+}
+
+///
+/// Returns the line-height of the current settings
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Number} Current base-line-height setting
+///
+@function base-line-height($map: $shevy) {
+  $settings: settings($map);
+  @return map-get($settings, 'base-line-height');
+}
+
+///
+/// @alias base-line-height
+///
+@function blh($map: $shevy) {
+  @return base-line-height($map);
+}
+
+///
+/// Takes a factor, multiplies it with the current settings base spacing to output values that are multiples or dividends of the current vertical rhythm
+/// @access public
+/// @param {Number} $factor [1] A factor with which to multiply the base-spacing value
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Value} Value of base-spacing multiplied by the factor provided
+///
+@function base-spacing($factor: 1, $map: $shevy) {
+  $settings: settings($map);
+  $base-spacing: base-spacing-math($settings);
+
+  @return $base-spacing * $factor;
+}
+
+///
+/// @alias base-spacing
+///
+@function bs($factor: 1, $map: $shevy) {
+  @return base-spacing($factor, $map);
+}
+
+///
+/// Calculates base spacing
+/// @access private
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Value} Value of base-font-size multiplied by base-line-height
+///
+@function base-spacing-math($map: $shevy) {
+  $settings: settings($map);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+
+  @return $base-font-size * $base-line-height;
+}
+
+///
+/// Creates a value equivalent to 1 of the base unit, i.e. if base unit is pixels, returns 1px
+/// @access private
+/// @param {String} $unit String of unit type. Options are: 'px', 'em', or 'rem'
+/// @return {Value} a value of 1 in the given unit type
+///
+@function base-unit-multiplier($unit) {
+  @if $unit == 'px' {
+    @return 1px;
+  } @else if $unit == 'em' {
+    @return 1em;
+  } @else if $unit == 'rem' {
+    @return 1rem;
+  } @else {
+    @warn "Sorry, but that is not a supported unit of measure.";
+  }
+}
+
+///
+/// Merge current settings map with Shevy defaults
+/// @access public
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Map} Map of merged settings
+///
+@function settings($map: $shevy) {
+  @return map-merge($shevy-defaults, $map);
+}

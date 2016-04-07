@@ -1,3 +1,4 @@
 node_modules/
 .sass-cache/
 demo/css/style.css.map
+*.gem

@@ -4,23 +4,23 @@ A simple, configurable Sass library for typography with perfect vertical rhythm.
 
 ## Installation
 
-If you want to add this to a project, copy the `lib/` directory into the appropriate location in your app.
+If you want to add this to a project, copy the `core/` directory into the appropriate location in your app.
 
 ```
-$ cp -R lib/ path/to/your/project
+$ cp -R core/ path/to/your/project
 ```
 
 Then `@import` the `_shevy.scss` file into your project.
 
 ```scss
-@import 'lib/shevy';
+@import 'core/shevy';
 ```
 
 Be sure to place this _before_ any call to Shevy mixins and functions so that the Sass compiles without error.
 
 #### Ruby on Rails
 
-If you are using Ruby on Rails and would like to add Shevy to your project, you're in luck. Shevy is also a [Ruby Gem](https://rubygems.org/gems/shevy) and the repo can be found [here](https://github.com/kyleshevlin/shevy-gem). In your `Gemfile` add:
+If you are using Ruby on Rails and would like to add Shevy to your project, you're in luck. Shevy is also a [Ruby Gem](https://rubygems.org/gems/shevy). In your `Gemfile` add:
 
 ```ruby
 gem 'shevy'
@@ -32,13 +32,7 @@ Then run:
 $ bundle install
 ```
 
-Once the gem is installed, add Shevy to your `application.css` file.
-
-```
-*= require shevy
-```
-
-And _then_ `@import` the `_shevy.scss` file into your project with:
+Once the gem is installed, add Shevy to your project by adding:
 
 ```scss
 @import 'shevy';
@@ -48,14 +42,15 @@ Once again, be sure to place this _before_ any call to Shevy mixins or functions
 
 ## Usage
 
-Shevy comes packaged with default settings. So the simplest usage of Shevy is to call two mixins.
+Shevy comes packaged with default settings. So the simplest usage of Shevy is to call a few mixins.
 
 ```scss
 @include headings;
-@include paragraph;
+@include body;
+@include content;
 ```
 
-This will output styles for all headings (`h1` to `h6`) and the `p` tag. However, you may find that the default settings don't suit your project. Shevy allows you to configure settings globally and/or at the component level. Here's how:
+This will output styles for all headings (`h1` to `h6`), several content tags (`p`, `ol`, `ul`, and `pre`), and set font-size and line-height for the `body` tag.. However, you may find that the default settings don't suit your project. Shevy allows you to configure settings globally and/or at the component level. Here's how:
 
 ### Global
 
@@ -65,14 +60,17 @@ Shevy mixins take a Sass map as one of the arguments. The default map is the `$s
 $shevy: (
     base-font-size: 14px,
     base-line-height: 1.5,
-    base-font-scale: (2.5, 2.1, 1.8, 1.5, 1.25, 1)
+    base-font-scale: (2.5, 2.1, 1.8, 1.5, 1.25, 1),
+    margin-bottom: true
 );
 ```
 
-Then, `@include` the `headings` mixin in your code
+Then, `@include` the `headings`, `body`, and `content` mixins in your code
 
-```
+```scss
 @include headings;
+@include body;
+@include content;
 ```
 
 Now marvel at your beautiful typography. Assuming you've put something on the page. You have put something on the page, haven't you?
@@ -91,23 +89,22 @@ $shevy-small: (
 );
 ```
 
-Then call the `headings` or `paragraph` mixin passing your new map to them:
+Then call the any of the mixins, passing your new settings map as an argument:
 
 ```scss
 .my_component {
   @include headings($shevy-small);
-  @include paragraph($shevy-small);
+  @include content($shevy-small);
 }
 ```
 
 ## Defaults
 
-```
+```scss
 $shevy: (
     base-font-size: 1em,
     base-line-height: 1.5,
     base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1),
-    paragraph-scale: false,
     margin-bottom: true
 );
 ```
@@ -124,72 +121,59 @@ The `base-line-height` is the standard line-height. If this is set in pixels, th
 
 This is a Sass list of factors to multiply by the `base-font-size` to generate the font-sizes for headings and paragraphs (if a `paragraph-scale` is not provided).
 
-### paragraph-scale
-
-This is intended for use in setting the size of the paragraph font-size, though by default is set to false. When set to false, Shevy uses the last value passed in the `font-scale` list to size the paragraph.
-
 ### margin-bottom
 
 By default, margin bottoms are added to all typography to maintain the vertical rhythm. However, you may wish to remove these. In that case, setting `margin-bottom: false` in your map will set the `margin-bottom` property to `0` for each element.
 
 ## Functions
 
-Currently, Shevy has one additonal function that can be useful to your project. Maintaining vertical rhythm also means that your other page elements (such as a `button`) should have margins that are multiples or divedends of your vertical rhythm. Thus, Shevy provides the `base-spacing()` function (with an alias of `bs()` for those who enjoy brevity).
+There are several public functions available to the developer to use as they please. Here is a list of them:
 
-The `base-spacing()` function takes two arguments, a `$factor` and a `$map`. The `$factor` defaults to 1 and the `$map` defaults to `$shevy`. Thus, the simplest call of this function looks like this:
+* `base-font-size()`, with alias `bsf()`
+* `base-font-unit()`, with alias `bfu()`
+* `base-line-height()`, with alias `blh()`
+* `base-spacing()`, with alias `bs()`
+* `settings()`
 
-```scss
-.my_button {
-  margin-bottom: base-spacing();
-}
-```
+### base-font-size
 
-And outputs:
+`base-font-size()` will return the `base-font-size` setting in the $shevy map, or the map passed to the function as an argument.
 
-```css
-.my_button {
-  margin-bottom: 1.5em;
-}
-```
+### base-font-unit
 
-The output value is derived by multiplying the `base-font-size` and the `base-line-height` values of the map together. Multiply these by the `$factor` provided and you get multiples or dividends of your vertical rhythm. This function can be used to set paddings as well (Remember, `base-spacing()` has an alias).
+`base-font-unit()` will determine whether the measurements have been defined in `px`, `em`, or `rem` and return the correct unit type. A map can be passed to the function as an argument.
 
-```scss
-.my_button {
-  padding: bs(.25) bs(.5);
-  margin-bottom: bs();
-}
-```
+### base-line-height
 
-Or at a component level, remember our `$shevy-small` map from above:
+`base-line-height()` will return the `base-line-height` setting in the $shevy map, or the map passed ot the function as an argument.
+
+### base-spacing
+
+`base-spacing()` calculates the base spacing of the vertical rhythm by multiplying the base font size by the base line-height. A factor may be passed to the argument to return multiples or dividends of the base-spacing.
+
+Example:
 
 ```scss
-.my_component {
-  padding: bs(.25, $shevy-small) bs(.5, $shevy-small);
-  margin-bottom: bs(1, $shevy-small);
+.button {
+  padding: bs(.5) bs(2);
 }
 ```
+
+A map of settings can be passed as the second argument to adjust the output.
+
+### settings
+
+`settings()` is a function utilized by Shevy to merge a map with the `$shevy-defaults` map. This ensures that the current map has all the settings it should. The user can use this to create new maps on the fly if they desire, though there isn't much of a purpose for that just yet.
 
 ## Support
 
 Currently, Shevy supports `px`, `em`, and `rem` usage. Additional support for other measurement units may be added in the future.
 
-## Features to Add
-
-Here are some features/situations we are hoping to account for in the near future.
-
-- Validation
-- Exception mixins &mdash; The ability to create font sizes that override the main typographical settings.
-- Recall mixins &mdash; If you use the `font-size: 0` hack for `inline-block` layouts, we would like you to be able to write a simple mixin with a heading or paragraph to output the font-sizes for that. Ex: `@include recall(h2)`.
-- Handle situations with less than 6 font-sizes
-- Add functionality for custom line-height-scale, similar to current implementation of font-size scale.
-- Dunno yet. What do you want?
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Kyle Shevlin
+Copyright (c) 2016 Kyle Shevlin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
