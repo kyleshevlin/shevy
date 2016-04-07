@@ -1,6 +1,7 @@
 {
-  "name": "Shevy",
-  "version": "1.0.0",
+  "title": "Shevy",
+  "name": "shevy",
+  "version": "2.0.0",
   "description": "A vertical rhythm library",
   "main": "Gruntfile.js",
   "scripts": {
@@ -11,14 +12,15 @@
     "url": "git@github.com:kyleshevlin/shevy.git"
   },
   "keywords": [
-    "Shevy",
+    "responsive",
     "vertical",
     "rhythm",
     "typography",
-    "Sass"
+    "Sass",
+    "SCSS"
   ],
   "author": "Kyle Shevlin",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kyleshevlin/shevy/issues"
   },

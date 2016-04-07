@@ -4,23 +4,23 @@ A simple, configurable Sass library for typography with perfect vertical rhythm.
 
 ## Installation
 
-If you want to add this to a project, copy the `lib/` directory into the appropriate location in your app.
+If you want to add this to a project, copy the `core/` directory into the appropriate location in your app.
 
 ```
-$ cp -R lib/ path/to/your/project
+$ cp -R core/ path/to/your/project
 ```
 
 Then `@import` the `_shevy.scss` file into your project.
 
 ```scss
-@import 'lib/shevy';
+@import 'core/shevy';
 ```
 
 Be sure to place this _before_ any call to Shevy mixins and functions so that the Sass compiles without error.
 
 #### Ruby on Rails
 
-If you are using Ruby on Rails and would like to add Shevy to your project, you're in luck. Shevy is also a [Ruby Gem](https://rubygems.org/gems/shevy) and the repo can be found [here](https://github.com/kyleshevlin/shevy-gem). In your `Gemfile` add:
+If you are using Ruby on Rails and would like to add Shevy to your project, you're in luck. Shevy is also a [Ruby Gem](https://rubygems.org/gems/shevy). In your `Gemfile` add:
 
 ```ruby
 gem 'shevy'
@@ -32,13 +32,7 @@ Then run:
 $ bundle install
 ```
 
-Once the gem is installed, add Shevy to your `application.css` file.
-
-```
-*= require shevy
-```
-
-And _then_ `@import` the `_shevy.scss` file into your project with:
+Once the gem is installed, add Shevy to your project by adding:
 
 ```scss
 @import 'shevy';
