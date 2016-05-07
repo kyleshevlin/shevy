@@ -66,10 +66,10 @@
 
 ///
 /// Returns the line-height spacing, which is unaffected by proximity-factor
-/// @access @public
+/// @access public
 /// @param {Number} $factor [1] A factor with which to multiply the base-spacing value
 /// @param {Map} $map [$shevy] Map of settings
-/// @return {Number} Calculated line-height
+/// @return {Value} Value of the calculated line-height
 ///
 @function line-height-spacing($factor: 1, $map: $shevy) {
   $settings: settings($map);
@@ -79,7 +79,7 @@
 }
 
 ///
-/// Returns Returns the line-height spacing, which is unaffected by proximity-factor
+/// Returns the line-height spacing, which is unaffected by proximity-factor
 /// @access private
 /// @param {Map} $map [$shevy] Map of settings
 /// @return {Value} Value of base-font-size multiplied by base-line-height
