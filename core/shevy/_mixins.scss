@@ -10,7 +10,8 @@
   $base-unit-multiplier: base-unit-multiplier($base-font-unit);
   $base-font-size: base-font-size($settings);
   $base-line-height: base-line-height($settings);
-  $base-spacing: base-spacing();
+  $line-height-spacing: line-height-spacing(1, $settings);
+  $base-spacing: base-spacing(1, $settings);
   $font-scale-length: length(map-get($settings, 'base-font-scale'));
   $font-unit-ems-bool: if($base-font-unit == 'em', true, false);
   $margin-bottom-bool: map-get($settings, 'margin-bottom');
@@ -18,24 +19,24 @@
   @for $i from 1 through $font-scale-length {
     $font-scale-value: get-font-scale-value($i, $settings);
     $font-size: $base-font-size * $font-scale-value;
-    $line-height: null;
+    $line-height: 0;
     $margin-bottom: 0;
 
     // Line Height Calculation
-    @if $font-size <= $base-spacing {
-      $line-height: $base-spacing
+    @if $font-size <= $line-height-spacing {
+      $line-height: $line-height-spacing;
     } @else {
       $increment: 1.5;
 
       // Use half increments, while technically breaking the baseline, they are more aesthetically pleasing and still mathematically sound
-      @while base-spacing($increment) <= $font-size {
+      @while line-height-spacing($increment, $settings) <= $font-size {
         $increment: $increment + .5;
       }
 
       @if $font-unit-ems-bool {
-        $line-height: base-spacing($increment) / $font-size;
+        $line-height: line-height-spacing($increment, $settings) / $font-size;
       } @else {
-        $line-height: base-spacing($increment);
+        $line-height: line-height-spacing($increment, $settings);
       }
     }
 
@@ -89,7 +90,7 @@
   $base-unit-multiplier: base-unit-multiplier($base-font-unit);
   $base-font-size: base-font-size($settings);
   $base-line-height: base-line-height($settings);
-  $base-spacing: base-spacing();
+  $base-spacing: base-spacing(1, $settings);
   $margin-bottom: 0;
   $margin-bottom-bool: map-get($settings, 'margin-bottom');
   $font-unit-ems-bool: if($base-font-unit == 'em', true, false);;
