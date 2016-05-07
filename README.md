@@ -61,7 +61,9 @@ $shevy: (
     base-font-size: 14px,
     base-line-height: 1.5,
     base-font-scale: (2.5, 2.1, 1.8, 1.5, 1.25, 1),
-    margin-bottom: true
+    margin-bottom: true,
+    proximity: false,
+    proximity-factor: .85
 );
 ```
 
@@ -125,6 +127,14 @@ This is a Sass list of factors to multiply by the `base-font-size` to generate t
 
 By default, margin bottoms are added to all typography to maintain the vertical rhythm. However, you may wish to remove these. In that case, setting `margin-bottom: false` in your map will set the `margin-bottom` property to `0` for each element.
 
+### proximity
+
+In design, there is a phenomenon known as the proximity effect where our minds group things together that are close in spatial relation. Turning on proximity will enable you to apply a proximity factor to the margin-bottoms and base-spacing outputs, in effect, drawing content closer together. You might find this more aesthetically pleasing than strictly following the baseline.
+
+### proximity-factor
+
+Proximity factor is a factor with which to adjust the base spacing of your typography without affecting the line-height spacing. This value will be multiplied against the calculated base-spacing value, _if_ `proximity` is set to `true` in your settings map.
+
 ## Functions
 
 There are several public functions available to the developer to use as they please. Here is a list of them:
@@ -132,6 +142,7 @@ There are several public functions available to the developer to use as they ple
 * `base-font-size()`, with alias `bsf()`
 * `base-font-unit()`, with alias `bfu()`
 * `base-line-height()`, with alias `blh()`
+* `line-height-spacing()`, with alias `lhs()`
 * `base-spacing()`, with alias `bs()`
 * `settings()`
 
@@ -147,9 +158,13 @@ There are several public functions available to the developer to use as they ple
 
 `base-line-height()` will return the `base-line-height` setting in the $shevy map, or the map passed ot the function as an argument.
 
+### line-height-spacing
+
+`line-height-spacing()` calculates the line-height spacing of the vertical rhythm by multiplying the base font size by the base line-height. A factor may be passed to the argument to return multiples or dividends of the line-height spacing.
+
 ### base-spacing
 
-`base-spacing()` calculates the base spacing of the vertical rhythm by multiplying the base font size by the base line-height. A factor may be passed to the argument to return multiples or dividends of the base-spacing.
+`base-spacing()` calculates the base spacing of the vertical rhythm by multiplying the base font size by the base line-height, _with the additional math to handle proximity_, thus differentiating it from the `line-height-spacing()` function. A factor may be passed to the argument to return multiples or dividends of the base-spacing.
 
 Example:
 

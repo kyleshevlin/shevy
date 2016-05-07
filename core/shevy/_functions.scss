@@ -79,6 +79,13 @@
 }
 
 ///
+/// @alias line-height-spacing
+///
+@function lhs($factor: 1, $map: $shevy) {
+  @return line-height-spacing($factor, $map);
+}
+
+///
 /// Returns the line-height spacing, which is unaffected by proximity-factor
 /// @access private
 /// @param {Map} $map [$shevy] Map of settings
