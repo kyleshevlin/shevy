@@ -47,7 +47,7 @@
 }
 
 ///
-/// Returns the line-height of the current settings
+/// Returns the base line-height of the current settings
 /// @access public
 /// @param {Map} $map [$shevy] Map of settings
 /// @return {Number} Current base-line-height setting
@@ -62,6 +62,34 @@
 ///
 @function blh($map: $shevy) {
   @return base-line-height($map);
+}
+
+///
+/// Returns the line-height spacing, which is unaffected by proximity-factor
+/// @access public
+/// @param {Number} $factor [1] A factor with which to multiply the base-spacing value
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Value} Value of the calculated line-height
+///
+@function line-height-spacing($factor: 1, $map: $shevy) {
+  $settings: settings($map);
+  $line-height-spacing: line-height-spacing-math($settings);
+
+  @return $line-height-spacing * $factor;
+}
+
+///
+/// Returns the line-height spacing, which is unaffected by proximity-factor
+/// @access private
+/// @param {Map} $map [$shevy] Map of settings
+/// @return {Value} Value of base-font-size multiplied by base-line-height
+///
+@function line-height-spacing-math($map: $shevy) {
+  $settings: settings($map);
+  $base-font-size: base-font-size($settings);
+  $base-line-height: base-line-height($settings);
+
+  @return $base-font-size * $base-line-height;
 }
 
 ///
@@ -89,14 +117,21 @@
 /// Calculates base spacing
 /// @access private
 /// @param {Map} $map [$shevy] Map of settings
-/// @return {Value} Value of base-font-size multiplied by base-line-height
+/// @return {Value} Value of base-font-size multiplied by base-line-height, additionally multiplied by proximity factor if proximity is true
 ///
 @function base-spacing-math($map: $shevy) {
   $settings: settings($map);
   $base-font-size: base-font-size($settings);
   $base-line-height: base-line-height($settings);
+  $proximity-bool: map-get($settings, proximity);
+  $proximity-factor: map-get($settings, proximity-factor);
+  $base-spacing: $base-font-size * $base-line-height;
 
-  @return $base-font-size * $base-line-height;
+  @if $proximity-bool {
+    $base-spacing: $base-spacing * $proximity-factor;
+  }
+
+  @return $base-spacing;
 }
 
 ///

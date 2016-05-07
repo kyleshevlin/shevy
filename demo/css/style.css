@@ -57,31 +57,36 @@ h3 {
 
 h4 {
   font-size: 1.5em;
-  line-height: 1;
+  line-height: 1.5em;
   margin-bottom: 1em;
 }
 
 h5 {
   font-size: 1.25em;
-  line-height: 1.2;
+  line-height: 1.5em;
   margin-bottom: 1.2em;
 }
 
 h6 {
   font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 1.5em;
-}
-
-p {
-  font-size: 1em;
   line-height: 1.5em;
   margin-bottom: 1.5em;
 }
 
-.shevy {
-  background-image: url(http://basehold.it/i/24/);
+body {
+  font-size: 1em;
+  line-height: 1.5;
 }
+
+p,
+ol,
+ul,
+pre {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
 .shevy h1 {
   font-size: 3em;
   line-height: 1.25;
@@ -99,287 +104,314 @@ p {
 }
 .shevy h4 {
   font-size: 1.5em;
-  line-height: 1;
+  line-height: 1.5em;
   margin-bottom: 1em;
 }
 .shevy h5 {
   font-size: 1.25em;
-  line-height: 1.2;
+  line-height: 1.5em;
   margin-bottom: 1.2em;
 }
 .shevy h6 {
   font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 1.5em;
-}
-.shevy p {
-  font-size: 1em;
   line-height: 1.5em;
   margin-bottom: 1.5em;
 }
-
-.large {
-  background-image: url(http://basehold.it/i/30/);
+.shevy body {
+  font-size: 1em;
+  line-height: 1.5;
 }
+.shevy p,
+.shevy ol,
+.shevy ul,
+.shevy pre {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
 .large h1 {
   font-size: 90px;
   line-height: 105px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .large h2 {
   font-size: 75px;
   line-height: 90px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .large h3 {
   font-size: 60px;
   line-height: 75px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .large h4 {
   font-size: 45px;
   line-height: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .large h5 {
   font-size: 30px;
   line-height: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 .large h6 {
   font-size: 15px;
   line-height: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
-.large p {
+.large body {
   font-size: 15px;
-  line-height: 30px;
-  margin-bottom: 30px;
+  line-height: 2;
+}
+.large p,
+.large ol,
+.large ul,
+.large pre {
+  font-size: 15px;
+  line-height: 2;
+  margin-bottom: 21px;
 }
 .large h6 {
-  /* If you're clever and look at this and notice it's different,
-  let me tell you why. Shevy supports a half base-space so that large headings
-  don't have obnoxiously big margins. When you're using basehold.it,
-  it's nice to bump up a margin manually to get the text below back on the baseline. Kudos for finding this */
-  margin-bottom: 45px;
+  margin-bottom: 31.5px;
 }
 @media only screen and (min-width: 478px) {
   .large h6 {
-    margin-bottom: 30px;
+    margin-bottom: 21px;
   }
 }
 
-.responsive {
-  background-image: url(http://basehold.it/i/21/);
-}
 .responsive h1 {
   font-size: 28px;
   line-height: 31.5px;
-  margin-bottom: 21px;
+  margin-bottom: 17.85px;
 }
 .responsive h2 {
   font-size: 24.5px;
   line-height: 31.5px;
-  margin-bottom: 21px;
+  margin-bottom: 17.85px;
 }
 .responsive h3 {
   font-size: 21px;
   line-height: 21px;
-  margin-bottom: 21px;
+  margin-bottom: 17.85px;
 }
 .responsive h4 {
   font-size: 17.5px;
   line-height: 21px;
-  margin-bottom: 21px;
+  margin-bottom: 17.85px;
 }
 .responsive h5 {
   font-size: 14px;
   line-height: 21px;
-  margin-bottom: 21px;
+  margin-bottom: 17.85px;
 }
 .responsive h6 {
   font-size: 10.5px;
   line-height: 21px;
-  margin-bottom: 21px;
+  margin-bottom: 17.85px;
 }
-.responsive p {
-  font-size: 10.5px;
-  line-height: 21px;
-  margin-bottom: 21px;
+.responsive body {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.responsive p,
+.responsive ol,
+.responsive ul,
+.responsive pre {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 17.85px;
 }
 @media only screen and (min-width: 520px) {
-  .responsive {
-    background-image: url(http://basehold.it/i/24/);
-  }
   .responsive h1 {
     font-size: 32px;
     line-height: 36px;
-    margin-bottom: 24px;
+    margin-bottom: 20.4px;
   }
   .responsive h2 {
     font-size: 28px;
     line-height: 36px;
-    margin-bottom: 24px;
+    margin-bottom: 20.4px;
   }
   .responsive h3 {
     font-size: 24px;
     line-height: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 20.4px;
   }
   .responsive h4 {
     font-size: 20px;
     line-height: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 20.4px;
   }
   .responsive h5 {
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 20.4px;
   }
   .responsive h6 {
     font-size: 12px;
     line-height: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 20.4px;
   }
-  .responsive p {
-    font-size: 12px;
-    line-height: 24px;
-    margin-bottom: 24px;
+  .responsive body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20.4px;
   }
 }
 @media only screen and (min-width: 769px) {
-  .responsive {
-    background-image: url(http://basehold.it/i/54/);
-  }
   .responsive h1 {
     font-size: 3.75em;
-    line-height: 1.35;
-    margin-bottom: 0.9em;
+    line-height: 1.2;
+    margin-bottom: 0.51em;
   }
   .responsive h2 {
     font-size: 3.3em;
     line-height: 1.02273;
-    margin-bottom: 1.02273em;
+    margin-bottom: 0.57955em;
   }
   .responsive h3 {
     font-size: 3em;
     line-height: 1.125;
-    margin-bottom: 1.125em;
+    margin-bottom: 0.6375em;
   }
   .responsive h4 {
     font-size: 2.625em;
     line-height: 1.28571;
-    margin-bottom: 1.28571em;
+    margin-bottom: 0.72857em;
   }
   .responsive h5 {
     font-size: 1.875em;
-    line-height: 1.8;
-    margin-bottom: 1.8em;
+    line-height: 2.25em;
+    margin-bottom: 1.02em;
   }
   .responsive h6 {
     font-size: 1.5em;
-    line-height: 2.25;
-    margin-bottom: 2.25em;
-  }
-  .responsive p {
-    font-size: 1.5em;
     line-height: 2.25em;
-    margin-bottom: 2.25em;
+    margin-bottom: 1.275em;
+  }
+  .responsive body {
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 1.275em;
   }
 }
 @media only screen and (min-width: 1025px) {
-  .responsive {
-    background-image: url(http://basehold.it/i/54/);
-  }
   .responsive h1 {
     font-size: 90px;
     line-height: 108px;
-    margin-bottom: 54px;
+    margin-bottom: 45.9px;
   }
   .responsive h2 {
     font-size: 79.2px;
     line-height: 81px;
-    margin-bottom: 54px;
+    margin-bottom: 45.9px;
   }
   .responsive h3 {
     font-size: 72px;
     line-height: 81px;
-    margin-bottom: 54px;
+    margin-bottom: 45.9px;
   }
   .responsive h4 {
     font-size: 63px;
     line-height: 81px;
-    margin-bottom: 54px;
+    margin-bottom: 45.9px;
   }
   .responsive h5 {
     font-size: 45px;
     line-height: 54px;
-    margin-bottom: 54px;
+    margin-bottom: 45.9px;
   }
   .responsive h6 {
     font-size: 36px;
     line-height: 54px;
-    margin-bottom: 54px;
+    margin-bottom: 45.9px;
   }
-  .responsive p {
+  .responsive body {
     font-size: 36px;
-    line-height: 54px;
-    margin-bottom: 54px;
+    line-height: 1.5;
+  }
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
+    font-size: 36px;
+    line-height: 1.5;
+    margin-bottom: 45.9px;
   }
 }
 @media only screen and (min-width: 1350px) {
-  .responsive {
-    background-image: url(http://basehold.it/i/72/);
-  }
   .responsive h1 {
     font-size: 144px;
     line-height: 180px;
-    margin-bottom: 72px;
+    margin-bottom: 61.2px;
   }
   .responsive h2 {
     font-size: 120px;
     line-height: 144px;
-    margin-bottom: 72px;
+    margin-bottom: 61.2px;
   }
   .responsive h3 {
     font-size: 96px;
     line-height: 108px;
-    margin-bottom: 72px;
+    margin-bottom: 61.2px;
   }
   .responsive h4 {
     font-size: 84px;
     line-height: 108px;
-    margin-bottom: 72px;
+    margin-bottom: 61.2px;
   }
   .responsive h5 {
     font-size: 60px;
     line-height: 72px;
-    margin-bottom: 72px;
+    margin-bottom: 61.2px;
   }
   .responsive h6 {
     font-size: 48px;
     line-height: 72px;
-    margin-bottom: 72px;
+    margin-bottom: 61.2px;
   }
-  .responsive p {
+  .responsive body {
     font-size: 48px;
-    line-height: 72px;
-    margin-bottom: 72px;
+    line-height: 1.5;
+  }
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
+    font-size: 48px;
+    line-height: 1.5;
+    margin-bottom: 61.2px;
   }
 }
 @media only screen and (min-width: 769px) {
   .responsive p:first-child {
-    margin-bottom: 1.125em;
+    margin-bottom: 0.95625em;
   }
 }
 @media only screen and (min-width: 1025px) {
   .responsive p:first-child {
-    margin-bottom: 27px;
+    margin-bottom: 22.95px;
   }
 }
 @media only screen and (min-width: 1350px) {
   .responsive p:first-child {
-    margin-bottom: 36px;
+    margin-bottom: 30.6px;
   }
 }
 
@@ -389,26 +421,26 @@ p {
   margin-bottom: 1.5em;
 }
 .responsive .box {
-  padding: 42px;
+  padding: 35.7px;
 }
 @media only screen and (min-width: 520px) {
   .responsive .box {
-    padding: 48px;
+    padding: 40.8px;
   }
 }
 @media only screen and (min-width: 769px) {
   .responsive .box {
-    padding: 4.5em;
+    padding: 3.825em;
   }
 }
 @media only screen and (min-width: 1025px) {
   .responsive .box {
-    padding: 108px;
+    padding: 91.8px;
   }
 }
 @media only screen and (min-width: 1350px) {
   .responsive .box {
-    padding: 144px;
+    padding: 122.4px;
   }
 }
 

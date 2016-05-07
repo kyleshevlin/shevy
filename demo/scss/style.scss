@@ -1,4 +1,4 @@
-@import '../../lib/shevy';
+@import '../../core/shevy';
 
 $breakpoints: (
   'alpha-prime': 478px,
@@ -6,6 +6,14 @@ $breakpoints: (
   'bravo': 769px,
   'charlie': 1025px,
   'delta': 1350px,
+);
+
+$large: (
+  base-font-size: 15px,
+  base-line-height: 2,
+  base-font-scale: (6, 5, 4, 3, 2, 1),
+  proximity: true,
+  proximity-factor: .7
 );
 
 @mixin bp($bp, $min_max: 'min') {
@@ -64,36 +72,28 @@ body {
 // Typography
 //////////////////////////////
 @include headings;
-@include paragraph;
+@include body;
+@include content;
 
 //////////////////////////////
 // Shevy Block
 //////////////////////////////
 .shevy {
-  background-image: url(http://basehold.it/i/24/);
   @include headings;
-  @include paragraph;
+  @include body;
+  @include content;
 }
 
 //////////////////////////////
 // Large Block
 //////////////////////////////
-$large: (
-  'base-font-size': 15px,
-  'base-line-height': 2,
-  'base-font-scale': (6, 5, 4, 3, 2, 1)
-);
 
 .large {
-  background-image: url(http://basehold.it/i/30/);
   @include headings($large);
-  @include paragraph($large);
+  @include body($large);
+  @include content($large);
 
   h6 {
-    /* If you're clever and look at this and notice it's different,
-    let me tell you why. Shevy supports a half base-space so that large headings
-    don't have obnoxiously big margins. When you're using basehold.it,
-    it's nice to bump up a margin manually to get the text below back on the baseline. Kudos for finding this */
     margin-bottom: bs(1.5, $large);
 
     @include bp(alpha-prime) {
@@ -106,57 +106,62 @@ $large: (
 // Responsive Block
 //////////////////////////////
 $responsive: (
-  'base-font-size': 14px,
-  'base-font-scale': (2, 1.75, 1.5, 1.25, 1, .75)
+  base-font-size: 14px,
+  base-font-scale: (2, 1.75, 1.5, 1.25, 1, .75),
+  proximity: true
 );
 
 $responsive-alpha: (
-  'base-font-size': 16px,
-  'base-font-scale': (2, 1.75, 1.5, 1.25, 1, .75)
+  base-font-size: 16px,
+  base-font-scale: (2, 1.75, 1.5, 1.25, 1, .75),
+  proximity: true
 );
 
 $responsive-bravo: (
-  'base-font-size': 1.5em,
-  'base-font-scale': (2.5, 2.2, 2, 1.75, 1.25, 1)
+  base-font-size: 1.5em,
+  base-font-scale: (2.5, 2.2, 2, 1.75, 1.25, 1),
+  proximity: true
 );
 
 $responsive-charlie: (
-  'base-font-size': 36px,
-  'base-font-scale': (2.5, 2.2, 2, 1.75, 1.25, 1)
+  base-font-size: 36px,
+  base-font-scale: (2.5, 2.2, 2, 1.75, 1.25, 1),
+  proximity: true
 );
 
 $responsive-delta: (
-  'base-font-size': 48px,
-  'base-font-scale': (3, 2.5, 2, 1.75, 1.25, 1)
+  base-font-size: 48px,
+  base-font-scale: (3, 2.5, 2, 1.75, 1.25, 1),
+  proximity: true
 );
 
 .responsive {
-  background-image: url(http://basehold.it/i/21/);
   @include headings($responsive);
-  @include paragraph($responsive);
+  @include body($responsive);
+  @include content($responsive);
 
   @include bp(alpha) {
-    background-image: url(http://basehold.it/i/24/);
     @include headings($responsive-alpha);
-    @include paragraph($responsive-alpha);
+    @include body($responsive-alpha);
+    @include content($responsive-alpha);
   }
 
   @include bp(bravo) {
-    background-image: url(http://basehold.it/i/54/);
     @include headings($responsive-bravo);
-    @include paragraph($responsive-bravo);
+    @include body($responsive-bravo);
+    @include content($responsive-bravo);
   }
 
   @include bp(charlie) {
-    background-image: url(http://basehold.it/i/54/);
     @include headings($responsive-charlie);
-    @include paragraph($responsive-charlie);
+    @include body($responsive-charlie);
+    @include content($responsive-charlie);
   }
 
   @include bp(delta) {
-    background-image: url(http://basehold.it/i/72/);
     @include headings($responsive-delta);
-    @include paragraph($responsive-delta);
+    @include body($responsive-delta);
+    @include content($responsive-delta);
   }
 
   p:first-child {
