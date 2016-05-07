@@ -95,8 +95,15 @@
   $settings: settings($map);
   $base-font-size: base-font-size($settings);
   $base-line-height: base-line-height($settings);
+  $proximity-bool: map-get($settings, proximity);
+  $proximity-factor: map-get($settings, proximity-factor);
+  $base-spacing: $base-font-size * $base-line-height;
 
-  @return $base-font-size * $base-line-height;
+  @if $proximity-bool {
+    $base-spacing: $base-spacing * $proximity-factor;
+  }
+
+  @return $base-spacing;
 }
 
 ///
