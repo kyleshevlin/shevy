@@ -1,0 +1,7 @@
+defaults:
+  -
+    scope:
+      path: "" # empty string indicates a scope of ALL files
+    values:
+      title: "Shevy | A Vertical Rhythm Sass Library"
+      layout: "default"
