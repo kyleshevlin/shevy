@@ -2,9 +2,17 @@
 
 A simple, configurable Sass library for typography with perfect vertical rhythm.
 
+## Demo
+
+[Check out the demo](http://kyleshevlin.github.io/shevy/)
+
 ## Installation
 
-If you want to add this to a project, copy the `core/` directory into the appropriate location in your app.
+Shevy is a Sass library, and thus requires Sass to be installed on your machine and and some means of compiling Sass down to CSS. I leave the details of that setup to you.
+
+### Copy From Source
+
+One way to add Shevy to your project is to copy from source. If you want to add this to a project, copy the `core/` directory into the appropriate location in your app.
 
 ```
 $ cp -R core/ path/to/your/project
@@ -18,7 +26,37 @@ Then `@import` the `_shevy.scss` file into your project.
 
 Be sure to place this _before_ any call to Shevy mixins and functions so that the Sass compiles without error.
 
-#### Ruby on Rails
+### NPM
+
+You can install Shevy as an NPM module with:
+
+```
+npm install --save shevy
+```
+
+Once installed, you can proceed to include the `core/_shevy.scss` file in your project. It will likely be nested a directory or so deeper than directly copying from source, so be sure you get your path correct. Something like this:
+
+```scss
+@import '../../node_modules/shevy/core/shevy';
+```
+
+At this time (October 2016), I have not attempted to use Shevy with any JS-to-CSS configuration such as requiring it in a Webpack module. Thus, I have no recommendations for how to use it in that way... yet.
+
+### Bower
+
+You can install Shevy as a Bower component:
+
+```
+bower install --save shevy
+```
+
+Similar to the NPM installation, this will install the project in another directory, so be sure to get your path correct when trying to import it.
+
+```scss
+@import '../../bower_components/shevy/core/shevy';
+```
+
+### Ruby on Rails
 
 If you are using Ruby on Rails and would like to add Shevy to your project, you're in luck. Shevy is also a [Ruby Gem](https://rubygems.org/gems/shevy). In your `Gemfile` add:
 
@@ -50,7 +88,7 @@ Shevy comes packaged with default settings. So the simplest usage of Shevy is to
 @include content;
 ```
 
-This will output styles for all headings (`h1` to `h6`), several content tags (`p`, `ol`, `ul`, and `pre`), and set font-size and line-height for the `body` tag.. However, you may find that the default settings don't suit your project. Shevy allows you to configure settings globally and/or at the component level. Here's how:
+This will output styles for all headings (`h1` to `h6`), several content tags (`p`, `ol`, `ul`, and `pre`), and set font-size and line-height for the `body` tag. However, you may find that the default settings don't suit your project. Shevy allows you to configure settings globally and/or at the component level. Here's how:
 
 ### Global
 
@@ -58,12 +96,12 @@ Shevy mixins take a Sass map as one of the arguments. The default map is the `$s
 
 ```scss
 $shevy: (
-    base-font-size: 14px,
-    base-line-height: 1.5,
-    base-font-scale: (2.5, 2.1, 1.8, 1.5, 1.25, 1),
-    margin-bottom: true,
-    proximity: false,
-    proximity-factor: .85
+  base-font-size: 14px,
+  base-line-height: 1.5,
+  base-font-scale: (2.5, 2.1, 1.8, 1.5, 1.25, 1),
+  margin-bottom: true,
+  proximity: false,
+  proximity-factor: .85
 );
 ```
 
