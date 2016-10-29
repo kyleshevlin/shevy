@@ -145,7 +145,9 @@ $shevy: (
     base-font-size: 1em,
     base-line-height: 1.5,
     base-font-scale: (3, 2.5, 2, 1.5, 1.25, 1),
-    margin-bottom: true
+    margin-bottom: true,
+    proximity: false,
+    proximity-factor: .85
 );
 ```
 
