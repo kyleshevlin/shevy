@@ -5,3 +5,4 @@ defaults:
     values:
       title: "Shevy | A Vertical Rhythm Sass Library"
       layout: "default"
+baseurl: '/shevy'
