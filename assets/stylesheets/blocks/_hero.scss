@@ -1,0 +1,41 @@
+//////////////////////////////
+// Hero
+//////////////////////////////
+
+.hero {
+  background: $c-dark-brand;
+  color: $c-white;
+  text-align: center;
+  padding-bottom: 56.5%;
+  position: relative;
+
+  &-background {
+    background: $c-dark-brand;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &-content {
+    width: 100%;
+    padding: bs();
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &-heading {
+    font-size: 65px;
+    font-weight: 700;
+    text-shadow: 0 2px 15px black(.5);
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: bs(.5);
+  }
+
+  &-subheading {
+    text-shadow: 0 0 15px black(.5);
+  }
+}

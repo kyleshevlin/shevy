@@ -3,15 +3,22 @@
 //////////////////////////////
 
 .header {
+  width: 100%;
   height: $s-header-height;
-  margin-bottom: bs(2);
+  background: $c-white;
   padding: bs(.5) 0;
   border-bottom: 1px solid $c-light-gray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: zi('header');
 
-  @include bp(alpha) {
-    height: auto;
-    padding: bs() 0;
-    margin-bottom: bs();
-    border-bottom: none;
+  &-heading {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }

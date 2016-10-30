@@ -22,7 +22,8 @@
 
 // Layouts
 @import
-  'layouts/container'
+  'layouts/container',
+  'layouts/main_content'
 ;
 
 // Sections
@@ -33,6 +34,8 @@
 
 // Blocks
 @import
+  'blocks/nav',
+  'blocks/hero',
   'blocks/buttons',
   'blocks/forms',
   'blocks/box'

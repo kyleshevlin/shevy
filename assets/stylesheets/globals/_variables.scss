@@ -16,6 +16,7 @@ $c-brand: hsl(197, 60%, 50%);
 $c-white: #fff;
 $c-black: #333;
 $c-light-gray: lighten(desaturate($c-brand, 35%), 45%);
+$c-dark-brand: darken($c-brand, 30%);
 
 // Font Stacks
 $f-serif: serif;
@@ -94,8 +95,7 @@ $z-indexes: (
 );
 
 // Sizes
-$s-header-height: 60px;
-$s-header-width: 320px;
+$s-header-height: 65px;
 
 // Spacing
 $bs: bs();

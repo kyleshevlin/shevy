@@ -10,8 +10,14 @@
 <body>
   {% include header.html %}
 
-  <div class="container">
-    {{ content }}
+  {% if page.path == 'index.html' %}
+    {% include hero.html %}
+  {% endif %}
+
+  <div class="main_content">
+    <div class="container">
+      {{ content }}
+    </div>
   </div>
 
   {% include footer.html %}

@@ -1,0 +1,18 @@
+//////////////////////////////
+// Nav
+//////////////////////////////
+
+.nav {
+  float: right;
+  font-family: $f-cata;
+  margin-top: 2px;
+
+  &-item {
+    display: inline-block;
+
+    &-link {
+      display: block;
+      padding: bs(.25);
+    }
+  }
+}
