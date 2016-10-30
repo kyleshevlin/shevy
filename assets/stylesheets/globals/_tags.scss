@@ -1,0 +1,52 @@
+//////////////////////////////
+// Tags
+//////////////////////////////
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-family: $f-content;
+  font-size: 85%;
+  line-height: 1.6;
+  box-sizing: border-box;
+
+  @include bp(alpha) {
+    font-size: 100%;
+  }
+
+  @include bp(delta) {
+    font-size: 115%;
+  }
+}
+
+body {
+  @include clearfix;
+  min-height: 100vh;
+  background: $c-white;
+  color: $c-black;
+  position: relative;
+}
+
+a {
+  color: $c-brand;
+  text-decoration: none;
+  transition: color .3s ease;
+
+  &:hover {
+    color: lighten($c-brand, 10%);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  margin-bottom: bs();
+}

@@ -1,0 +1,19 @@
+//////////////////////////////
+// Container
+//////////////////////////////
+
+.container {
+  @include container(80%);
+
+  @include bp(bravo) {
+    @include container(70%);
+  }
+
+  @include bp(charlie) {
+    @include container(60%);
+  }
+
+  @include bp(delta) {
+    @include container(50%);
+  }
+}

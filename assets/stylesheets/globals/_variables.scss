@@ -1,0 +1,106 @@
+//////////////////////////////
+// Variables
+//////////////////////////////
+
+// Breakpoints Map
+$breakpoints: (
+  'alpha': 521px,
+  'bravo': 769px,
+  'charlie': 1025px,
+  'delta': 1350px
+);
+
+// Colors
+$c-brand: hsl(197, 60%, 50%);
+
+$c-white: #fff;
+$c-black: #333;
+$c-light-gray: lighten(desaturate($c-brand, 35%), 45%);
+
+// Font Stacks
+$f-serif: serif;
+$f-sans: sans-serif;
+$f-droid: 'Droid Serif', $f-serif;
+$f-cata: 'Catamaran', $f-sans;
+
+// Functional Fonts
+$f-headings: $f-cata;
+$f-content: $f-droid;
+
+// Typography Map
+$shevy: (
+  base-font-size: 1rem,
+  base-line-height: 1.8,
+  base-font-scale: (2.4414, 1.9531, 1.5625, 1.25, 1, 1),
+  margin-bottom: true,
+  proximity: true,
+  proximity-factor: .85
+);
+
+$shevy-large: (
+  base-font-size: 15px,
+  base-line-height: 2,
+  base-font-scale: (6, 5, 4, 3, 2, 1),
+  margin-bottom: true,
+  proximity: false
+);
+
+
+$shevy-responsive: (
+  base-font-size: 14px,
+  base-line-height: 1.5,
+  base-font-scale: (2, 1.75, 1.5, 1.25, 1, .75),
+  margin-bottom: true,
+  proximity: false
+);
+
+$shevy-responsive-small: (
+  base-font-size: 16px,
+  base-line-height: 2,
+  base-font-scale: (2, 1.75, 1.5, 1.25, 1, .75),
+  margin-bottom: true,
+  proximity: false
+);
+
+$shevy-responsive-medium: (
+  base-font-size: 1.5em,
+  base-line-height: 1.5,
+  base-font-scale: (2.5, 2.2, 2, 1.75, 1.25, 1),
+  margin-bottom: true,
+  proximity: false
+);
+
+$shevy-responsive-large: (
+  base-font-size: 36px,
+  base-line-height: 1.5,
+  base-font-scale: (2.5, 2.2, 2, 1.45, 1.25, 1),
+  margin-bottom: true,
+  proximity: false
+);
+
+$shevy-responsive-x-large: (
+  base-font-size: 48px,
+  base-line-height: 1.5,
+  base-font-scale: (3, 2.5, 2, 1.75, 1.25, 1),
+  margin-bottom: true,
+  proximity: false
+);
+
+// Z-indexes
+$z-indexes: (
+  'default': 'auto',
+  'header': 2,
+  'nav': 10
+);
+
+// Sizes
+$s-header-height: 60px;
+$s-header-width: 320px;
+
+// Spacing
+$bs: bs();
+
+// Condo Map
+$condo: (
+  columns: 4
+);

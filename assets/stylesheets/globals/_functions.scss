@@ -1,0 +1,56 @@
+//////////////////////////////
+// Functions
+//////////////////////////////
+
+///
+/// Return the negation of the value
+/// @param {Value} $value - Any valid value, can have units
+/// @return {Value} - The negation equivalent of the passed in value. If the value passed in is negative, than the output will be positive.
+///
+@function negate($value) {
+  @return $value * -1;
+}
+
+///
+/// @alias negate
+///
+@function neg($value) {
+  @return negate($value);
+}
+
+///
+/// Retrieves the z-index value from the $z-indexes map
+/// @param {String} $layer ['default'] - Key in $z-indexes map
+/// @return {Value} - If key is present, returns the value associated with that key
+///
+@function zi($layer: 'default') {
+  @if not map-has-key($z-indexes, $layer) {
+    @warn "No value found for #{$layer} in $z-indexes map. Property omitted.";
+  }
+
+  @return map-get($z-indexes, $layer);
+}
+
+///
+/// Returns the rem equivalent of pixel value
+/// @param {Number} $number - Desired pixel size assuming html element's font-size is 100%. Can be an integer, or a pixel value, e.g. 12 or 12px
+/// @return {Value} - Value calculated in rem
+///
+@function remCalc($number) {
+  $rems: 0;
+
+  @if unitless($number) {
+    $rems: $number / 16;
+  } @else {
+    $rems: $number / 16px;
+  }
+
+  @return $rems * 1rem;
+}
+
+///
+/// @alias remCalc
+///
+@function rc($number) {
+  @return remCalc($number);
+}

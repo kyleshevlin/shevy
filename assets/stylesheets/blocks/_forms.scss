@@ -1,0 +1,32 @@
+//////////////////////////////
+// Forms
+//////////////////////////////
+
+label {
+  display: block;
+}
+
+input:not([type="submit"]),
+textarea {
+  -webkit-appearance: none;
+  display: block;
+  max-width: 100%;
+  background: $c-light-gray;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color .3s ease;
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid rgba($c-brand, .5);
+  }
+}
+
+input[type="submit"] {
+  @extend %btn;
+
+  &:focus {
+    outline: none;
+  }
+}

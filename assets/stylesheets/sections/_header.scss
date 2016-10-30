@@ -1,0 +1,17 @@
+//////////////////////////////
+// Header
+//////////////////////////////
+
+.header {
+  height: $s-header-height;
+  margin-bottom: bs(2);
+  padding: bs(.5) 0;
+  border-bottom: 1px solid $c-light-gray;
+
+  @include bp(alpha) {
+    height: auto;
+    padding: bs() 0;
+    margin-bottom: bs();
+    border-bottom: none;
+  }
+}

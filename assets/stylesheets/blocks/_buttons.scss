@@ -1,0 +1,43 @@
+//////////////////////////////
+// Buttons
+//////////////////////////////
+
+%btn {
+  display: inline-block;
+  font-family: $f-headings;
+  padding: bs(.25) bs();
+  margin-bottom: bs();
+  border: none;
+  border-radius: 2px;
+  transition: all .3s ease;
+}
+
+%btn--solid {
+  background: $c-brand;
+  color: $c-white;
+
+  &:hover {
+    background: darken($c-brand, 10%);
+  }
+}
+
+%btn--ghost_on_dark {
+  background: transparent;
+  color: $c-white;
+  border: 1px solid $c-white;
+
+  &:hover {
+    background: $c-white;
+    color: $c-brand;
+  }
+}
+
+.btn {
+  @extend %btn;
+  @extend %btn--solid;
+
+  &--ghost_on_dark {
+    @extend %btn;
+    @extend %btn--ghost_on_dark;
+  }
+}

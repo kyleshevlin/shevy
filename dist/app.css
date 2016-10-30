@@ -1,132 +1,389 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  margin: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+figcaption, figure, main {
+  display: block;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:active, a:hover {
+  outline-width: 0;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b, strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+audio, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: button;
+}
+
+[type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring, button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type=checkbox], [type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details, menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+canvas {
+  display: inline-block;
+}
+
+[hidden], template {
+  display: none;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
+  font-family: "Droid Serif", serif;
+  font-size: 85%;
+  line-height: 1.6;
   box-sizing: border-box;
-  font-size: 100%;
+}
+@media (min-width: 521px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media (min-width: 1350px) {
+  html {
+    font-size: 115%;
+  }
 }
 
 body {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
+  min-height: 100vh;
+  background: #fff;
+  color: #333;
+  position: relative;
+}
+body:before, body:after {
+  content: ' ';
+  display: table;
+}
+body:after {
+  clear: both;
 }
 
-.container {
-  width: 90%;
-  margin: 1em auto;
+a {
+  color: #33a1cc;
+  text-decoration: none;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+}
+a:hover {
+  color: #5cb4d6;
 }
 
-@media only screen and (min-width: 520px) {
-  .container {
-    width: 67%;
-  }
+img {
+  max-width: 100%;
+  height: auto;
 }
-@media only screen and (min-width: 1025px) {
-  .container {
-    width: 50%;
-  }
-}
-.footer {
-  margin-bottom: 3em;
+
+ul,
+ol {
+  margin-bottom: 1.53rem;
 }
 
 h1 {
-  font-size: 3em;
-  line-height: 1.25;
-  margin-bottom: 0.5em;
+  font-size: 2.4414rem;
+  line-height: 2.7rem;
+  margin-bottom: 1.53rem;
 }
 
 h2 {
-  font-size: 2.5em;
-  line-height: 1.2;
-  margin-bottom: 0.6em;
+  font-size: 1.9531rem;
+  line-height: 2.7rem;
+  margin-bottom: 1.53rem;
 }
 
 h3 {
-  font-size: 2em;
-  line-height: 1.125;
-  margin-bottom: 0.75em;
+  font-size: 1.5625rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
 
 h4 {
-  font-size: 1.5em;
-  line-height: 1;
-  margin-bottom: 1em;
+  font-size: 1.25rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
 
 h5 {
-  font-size: 1.25em;
-  line-height: 1.2;
-  margin-bottom: 1.2em;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
 
 h6 {
-  font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 1.5em;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
 
-p {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 1.5em;
+body {
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
-.shevy {
-  /*  background-image: url(http://basehold.it/i/24/);*/
+p,
+ol,
+ul,
+pre {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.53rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Catamaran", sans-serif;
+  font-weight: 400;
 }
 
 .shevy h1 {
-  font-size: 3em;
-  line-height: 1.25;
-  margin-bottom: 0.5em;
+  font-size: 2.4414rem;
+  line-height: 2.7rem;
+  margin-bottom: 1.53rem;
 }
-
 .shevy h2 {
-  font-size: 2.5em;
-  line-height: 1.2;
-  margin-bottom: 0.6em;
+  font-size: 1.9531rem;
+  line-height: 2.7rem;
+  margin-bottom: 1.53rem;
 }
-
 .shevy h3 {
-  font-size: 2em;
-  line-height: 1.125;
-  margin-bottom: 0.75em;
+  font-size: 1.5625rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
-
 .shevy h4 {
-  font-size: 1.5em;
-  line-height: 1;
-  margin-bottom: 1em;
+  font-size: 1.25rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
-
 .shevy h5 {
-  font-size: 1.25em;
-  line-height: 1.2;
-  margin-bottom: 1.2em;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
-
 .shevy h6 {
-  font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 1.5em;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.53rem;
 }
-
-.shevy p {
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-.large {
-  /*background-image: url(http://basehold.it/i/30/);*/
+.shevy p,
+.shevy ol,
+.shevy ul,
+.shevy pre {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.53rem;
 }
 
 .large h1 {
@@ -134,58 +391,38 @@ p {
   line-height: 105px;
   margin-bottom: 30px;
 }
-
 .large h2 {
   font-size: 75px;
   line-height: 90px;
   margin-bottom: 30px;
 }
-
 .large h3 {
   font-size: 60px;
   line-height: 75px;
   margin-bottom: 30px;
 }
-
 .large h4 {
   font-size: 45px;
   line-height: 60px;
   margin-bottom: 30px;
 }
-
 .large h5 {
   font-size: 30px;
   line-height: 30px;
   margin-bottom: 30px;
 }
-
 .large h6 {
   font-size: 15px;
   line-height: 30px;
   margin-bottom: 30px;
 }
-
-.large p {
+.large p,
+.large ol,
+.large ul,
+.large pre {
   font-size: 15px;
-  line-height: 30px;
+  line-height: 2;
   margin-bottom: 30px;
-}
-
-.large h6 {
-  /* If you're clever and look at this and notice it's different,
-  let me tell you why. Shevy supports a half base-space so that large headings
-  don't have obnoxiously big margins. When you're using basehold.it,
-  it's nice to bump up a margin manually to get the text below back on the baseline. Kudos for finding this */
-  margin-bottom: 45px;
-}
-
-@media only screen and (min-width: 478px) {
-  .large h6 {
-    margin-bottom: 30px;
-  }
-}
-.responsive {
-  /*background-image: url(http://basehold.it/i/21/);*/
 }
 
 .responsive h1 {
@@ -193,273 +430,354 @@ p {
   line-height: 31.5px;
   margin-bottom: 21px;
 }
-
 .responsive h2 {
   font-size: 24.5px;
   line-height: 31.5px;
   margin-bottom: 21px;
 }
-
 .responsive h3 {
   font-size: 21px;
   line-height: 21px;
   margin-bottom: 21px;
 }
-
 .responsive h4 {
   font-size: 17.5px;
   line-height: 21px;
   margin-bottom: 21px;
 }
-
 .responsive h5 {
   font-size: 14px;
   line-height: 21px;
   margin-bottom: 21px;
 }
-
 .responsive h6 {
   font-size: 10.5px;
   line-height: 21px;
   margin-bottom: 21px;
 }
-
-.responsive p {
-  font-size: 10.5px;
-  line-height: 21px;
+.responsive p,
+.responsive ol,
+.responsive ul,
+.responsive pre {
+  font-size: 14px;
+  line-height: 1.5;
   margin-bottom: 21px;
 }
-
-@media only screen and (min-width: 520px) {
-  .responsive {
-    /* background-image: url(http://basehold.it/i/24/);*/
-  }
-
+@media (min-width: 521px) {
   .responsive h1 {
     font-size: 32px;
-    line-height: 36px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
-
   .responsive h2 {
     font-size: 28px;
-    line-height: 36px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
-
   .responsive h3 {
     font-size: 24px;
-    line-height: 24px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
-
   .responsive h4 {
     font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
-
   .responsive h5 {
     font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
-
   .responsive h6 {
     font-size: 12px;
-    line-height: 24px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 32px;
   }
-
-  .responsive p {
-    font-size: 12px;
-    line-height: 24px;
-    margin-bottom: 24px;
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 32px;
   }
 }
-@media only screen and (min-width: 769px) {
-  .responsive {
-    /*background-image: url(http://basehold.it/i/54/);*/
-  }
-
+@media (min-width: 769px) {
   .responsive h1 {
     font-size: 3.75em;
-    line-height: 1.35;
-    margin-bottom: 0.9em;
+    line-height: 1.2;
+    margin-bottom: 0.6em;
   }
-
   .responsive h2 {
     font-size: 3.3em;
     line-height: 1.02273;
-    margin-bottom: 1.02273em;
+    margin-bottom: 0.68182em;
   }
-
   .responsive h3 {
     font-size: 3em;
     line-height: 1.125;
-    margin-bottom: 1.125em;
+    margin-bottom: 0.75em;
   }
-
   .responsive h4 {
     font-size: 2.625em;
     line-height: 1.28571;
-    margin-bottom: 1.28571em;
+    margin-bottom: 0.85714em;
   }
-
   .responsive h5 {
     font-size: 1.875em;
-    line-height: 1.8;
-    margin-bottom: 1.8em;
+    line-height: 2.25em;
+    margin-bottom: 1.2em;
   }
-
   .responsive h6 {
     font-size: 1.5em;
-    line-height: 2.25;
-    margin-bottom: 2.25em;
-  }
-
-  .responsive p {
-    font-size: 1.5em;
     line-height: 2.25em;
-    margin-bottom: 2.25em;
+    margin-bottom: 1.5em;
+  }
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 1.5em;
   }
 }
-@media only screen and (min-width: 1025px) {
-  .responsive {
-    /*background-image: url(http://basehold.it/i/54/);*/
-  }
-
+@media (min-width: 1025px) {
   .responsive h1 {
     font-size: 90px;
     line-height: 108px;
     margin-bottom: 54px;
   }
-
   .responsive h2 {
     font-size: 79.2px;
     line-height: 81px;
     margin-bottom: 54px;
   }
-
   .responsive h3 {
     font-size: 72px;
     line-height: 81px;
     margin-bottom: 54px;
   }
-
   .responsive h4 {
-    font-size: 63px;
-    line-height: 81px;
+    font-size: 52.2px;
+    line-height: 54px;
     margin-bottom: 54px;
   }
-
   .responsive h5 {
     font-size: 45px;
     line-height: 54px;
     margin-bottom: 54px;
   }
-
   .responsive h6 {
     font-size: 36px;
     line-height: 54px;
     margin-bottom: 54px;
   }
-
-  .responsive p {
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
     font-size: 36px;
-    line-height: 54px;
+    line-height: 1.5;
     margin-bottom: 54px;
   }
 }
-@media only screen and (min-width: 1350px) {
-  .responsive {
-    /*background-image: url(http://basehold.it/i/72/);*/
-  }
-
+@media (min-width: 1350px) {
   .responsive h1 {
     font-size: 144px;
     line-height: 180px;
     margin-bottom: 72px;
   }
-
   .responsive h2 {
     font-size: 120px;
     line-height: 144px;
     margin-bottom: 72px;
   }
-
   .responsive h3 {
     font-size: 96px;
     line-height: 108px;
     margin-bottom: 72px;
   }
-
   .responsive h4 {
     font-size: 84px;
     line-height: 108px;
     margin-bottom: 72px;
   }
-
   .responsive h5 {
     font-size: 60px;
     line-height: 72px;
     margin-bottom: 72px;
   }
-
   .responsive h6 {
     font-size: 48px;
     line-height: 72px;
     margin-bottom: 72px;
   }
-
-  .responsive p {
+  .responsive p,
+  .responsive ol,
+  .responsive ul,
+  .responsive pre {
     font-size: 48px;
-    line-height: 72px;
+    line-height: 1.5;
     margin-bottom: 72px;
   }
 }
-@media only screen and (min-width: 769px) {
-  .responsive p:first-child {
-    margin-bottom: 1.125em;
+
+.container {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+@media (min-width: 769px) {
+  .container {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table;
   }
 }
-@media only screen and (min-width: 1025px) {
-  .responsive p:first-child {
-    margin-bottom: 27px;
+@media (min-width: 1025px) {
+  .container {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table;
   }
 }
-@media only screen and (min-width: 1350px) {
-  .responsive p:first-child {
-    margin-bottom: 36px;
+@media (min-width: 1350px) {
+  .container {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table;
   }
 }
+
+.header {
+  height: 60px;
+  margin-bottom: 3.06rem;
+  padding: 0.765rem 0;
+  border-bottom: 1px solid #eff4f5;
+}
+@media (min-width: 521px) {
+  .header {
+    height: auto;
+    padding: 1.53rem 0;
+    margin-bottom: 1.53rem;
+    border-bottom: none;
+  }
+}
+
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 3.06rem 0;
+}
+
+.btn, .btn--ghost_on_dark, input[type="submit"] {
+  display: inline-block;
+  font-family: "Catamaran", sans-serif;
+  padding: 0.3825rem 1.53rem;
+  margin-bottom: 1.53rem;
+  border: none;
+  border-radius: 2px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.btn {
+  background: #33a1cc;
+  color: #fff;
+}
+.btn:hover {
+  background: #2981a3;
+}
+
+.btn--ghost_on_dark {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.btn--ghost_on_dark:hover {
+  background: #fff;
+  color: #33a1cc;
+}
+
+label {
+  display: block;
+}
+
+input:not([type="submit"]),
+textarea {
+  -webkit-appearance: none;
+  display: block;
+  max-width: 100%;
+  background: #eff4f5;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-color .3s ease;
+  transition: border-color .3s ease;
+}
+input:not([type="submit"]):focus,
+textarea:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(51, 161, 204, 0.5);
+}
+
+input[type="submit"]:focus {
+  outline: none;
+}
+
 .box {
   background: red;
-  padding: 3em;
-  margin-bottom: 1.5em;
+  padding: 3.06rem;
+  margin-bottom: 1.53rem;
 }
-
 .responsive .box {
   padding: 42px;
+  margin-bottom: 21px;
 }
-
-@media only screen and (min-width: 520px) {
+@media (min-width: 521px) {
   .responsive .box {
-    padding: 48px;
+    padding: 64px;
+    margin-bottom: 32px;
   }
 }
-@media only screen and (min-width: 769px) {
+@media (min-width: 769px) {
   .responsive .box {
     padding: 4.5em;
+    margin-bottom: 2.25em;
   }
 }
-@media only screen and (min-width: 1025px) {
+@media (min-width: 1025px) {
   .responsive .box {
     padding: 108px;
+    margin-bottom: 54px;
   }
 }
-@media only screen and (min-width: 1350px) {
+@media (min-width: 1350px) {
   .responsive .box {
     padding: 144px;
+    margin-bottom: 72px;
   }
 }

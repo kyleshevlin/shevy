@@ -1,0 +1,34 @@
+//////////////////////////////
+// Box
+//////////////////////////////
+
+.box {
+  background: red;
+  padding: bs(2);
+  margin-bottom: bs();
+
+  .responsive & {
+    padding: bs(2, $shevy-responsive);
+    margin-bottom: bs(1, $shevy-responsive);
+
+    @include bp(alpha) {
+      padding: bs(2, $shevy-responsive-small);
+      margin-bottom: bs(1, $shevy-responsive-small);
+    }
+
+    @include bp(bravo) {
+      padding: bs(2, $shevy-responsive-medium);
+      margin-bottom: bs(1, $shevy-responsive-medium);
+    }
+
+    @include bp(charlie) {
+      padding: bs(2, $shevy-responsive-large);
+      margin-bottom: bs(1, $shevy-responsive-large);
+    }
+
+    @include bp(delta) {
+      padding: bs(2, $shevy-responsive-x-large);
+      margin-bottom: bs(1, $shevy-responsive-x-large);
+    }
+  }
+}

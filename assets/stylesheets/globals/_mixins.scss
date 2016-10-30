@@ -1,0 +1,46 @@
+//////////////////////////////
+// Mixins
+//////////////////////////////
+
+// Breakpoint Mixin
+@mixin bp($breakpoint, $map: $breakpoints) {
+  // If the key exists in the map
+  $value: map-get($map, $breakpoint);
+
+  @if $value != null {
+    // Prints a media query based on the value
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn 'Unfortunately, no value with the name #{$breakpoint} could be retrieved from `$breakpoints`. Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+// Clearfix
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Vertical Center
+@mixin vertcenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Vertical and Horizontal Centering
+@mixin centercenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -2,4 +2,41 @@
 // Imports
 //////////////////////////////
 
-@import 'styles';
+// Resormalize
+@import 'vendors/resormalize';
+
+// Bower Components
+@import
+  '../../bower_components/shevy/core/shevy',
+  '../../bower_components/condo/core/condo'
+;
+
+// Globals
+@import
+  'globals/variables',
+  'globals/functions',
+  'globals/mixins',
+  'globals/tags',
+  'globals/typography'
+;
+
+// Layouts
+@import
+  'layouts/container'
+;
+
+// Sections
+@import
+  'sections/header',
+  'sections/footer'
+;
+
+// Blocks
+@import
+  'blocks/buttons',
+  'blocks/forms',
+  'blocks/box'
+;
+
+// Overrides
+@import 'globals/overrides';

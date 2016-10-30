@@ -1,0 +1,53 @@
+//////////////////////////////
+// Typography
+//////////////////////////////
+
+@include headings;
+@include body;
+@include content;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $f-headings;
+  font-weight: 400;
+}
+
+.shevy {
+  @include headings;
+  @include content;
+}
+
+
+.large {
+  @include headings($shevy-large);
+  @include content($shevy-large);
+}
+
+.responsive {
+  @include headings($shevy-responsive);
+  @include content($shevy-responsive);
+
+  @include bp(alpha) {
+    @include headings($shevy-responsive-small);
+    @include content($shevy-responsive-small);
+  }
+
+  @include bp(bravo) {
+    @include headings($shevy-responsive-medium);
+    @include content($shevy-responsive-medium);
+  }
+
+  @include bp(charlie) {
+    @include headings($shevy-responsive-large);
+    @include content($shevy-responsive-large);
+  }
+
+  @include bp(delta) {
+    @include headings($shevy-responsive-x-large);
+    @include content($shevy-responsive-x-large);
+  }
+}

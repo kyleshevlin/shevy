@@ -1,0 +1,22 @@
+{
+  "name": "shevy-gh-page",
+  "description": "Shevy's Github page",
+  "main": "index.js",
+  "authors": [
+    "Kyle Shevlin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kyleshevlin/shevy",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "shevy": "^2.1.0",
+    "condo": "^1.0.2"
+  }
+}
