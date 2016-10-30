@@ -17,7 +17,20 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          'dist/app.css': 'assets/stylesheets/base.scss'
+          'tmp/compiled.css': 'assets/stylesheets/base.scss'
+        }
+      }
+    },
+
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer')
+        ]
+      },
+      dist: {
+        files: {
+          'dist/app.css': 'tmp/compiled.css'
         }
       }
     },
@@ -29,7 +42,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: '**/*.scss',
-        tasks: ['sass'],
+        tasks: ['sass', 'postcss', 'clean'],
         options: {
           spawn: false
         }
@@ -37,17 +50,11 @@ module.exports = function(grunt) {
     }
   });
 
-  // Local Server
+  // Clean
   grunt.config.merge({
-    connect: {
-      server: {
-        options: {
-          keepalive : true
-        }
-      }
-    }
+    clean: ['tmp']
   });
 
   // Register Tasks
-  grunt.registerTask('default', ['sass', 'watch']);
+  grunt.registerTask('default', ['sass', 'postcss', 'clean', 'watch']);
 };
