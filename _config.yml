@@ -6,3 +6,11 @@ defaults:
       title: "Shevy | A Vertical Rhythm Sass Library"
       layout: "default"
 baseurl: '/shevy'
+exclude: [
+    'assets/',
+    'node_modules/',
+    'Gemfile',
+    'Gemfile.lock',
+    'Gruntfile.js',
+    'package.json'
+  ]

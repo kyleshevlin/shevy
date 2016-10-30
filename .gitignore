@@ -1,2 +1,4 @@
 .rvmrc
 _site/
+node_modules/
+*.map
