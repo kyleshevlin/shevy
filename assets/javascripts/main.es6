@@ -1,3 +1,14 @@
+const header = document.querySelector('.js-header')
+const hero = document.querySelector('.js-hero')
+
+const headerHeight = () => {
+  return header.offsetHeight
+}
+
+const heroHeight = () => {
+  return hero.offsetHeight
+}
+
 function debounce (func, wait, immediate = false) {
   let timeout
 
@@ -19,13 +30,6 @@ function debounce (func, wait, immediate = false) {
     timeout = setTimeout(later, wait)
 
     if (callNow) func.apply(context, args)
-  }
-}
-
-const shevy = () => {
-  if (isHome()) {
-    trianglify()
-    headerState()
   }
 }
 
@@ -51,27 +55,31 @@ const trianglify = () => {
   }, 350)
 }
 
-const headerState = () => {
-  const calcDistance = () => {
-    const scrollTop = window.scrollY
-    const header = document.querySelector('.js-header')
-    const headerHeight = header.offsetHeight
-    const hero = document.querySelector('.js-hero')
-    const heroHeight = hero.offsetHeight
+const calcHeaderState = () => {
+  const scrollTop = window.scrollY
 
-    const distance = heroHeight - (scrollTop + headerHeight)
+  const distance = heroHeight() - (scrollTop + headerHeight())
 
-    if (distance < 0) {
-      document.body.classList.add('has-solid-header')
-    } else {
-      document.body.classList.remove('has-solid-header')
-    }
+  if (distance < 0) {
+    document.body.classList.add('has-solid-header')
+  } else {
+    document.body.classList.remove('has-solid-header')
   }
+}
 
-  const onScroll = debounce(calcDistance, 17)
+const headerBindings = () => {
+  const updateHeaderState = debounce(calcHeaderState, 17)
 
-  document.addEventListener('touchmove', onScroll)
-  window.addEventListener('scroll', onScroll)
+  document.addEventListener('touchmove', updateHeaderState)
+  window.addEventListener('scroll', updateHeaderState)
+  window.addEventListener('resize', updateHeaderState)
+}
+
+const shevy = () => {
+  if (isHome()) {
+    trianglify()
+    headerBindings()
+  }
 }
 
 const ready = (fn) => {

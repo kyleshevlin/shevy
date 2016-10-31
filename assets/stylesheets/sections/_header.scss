@@ -16,6 +16,10 @@
               color .3s ease,
               border-color .3s ease;
 
+  @include bp(alpha) {
+    height: $s-header-height-small;
+  }
+
   .app.index & {
     background: transparent;
     color: $c-white;
