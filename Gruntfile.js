@@ -50,11 +50,39 @@ module.exports = function(grunt) {
     }
   });
 
+  // Javascript
+  grunt.config.merge({
+    babel: {
+      options: {
+        sourceMap: true,
+        presets: ['es2015']
+      },
+      dist: {
+        files: {
+          'dist/app.js': 'assets/javascripts/main.es6'
+        }
+      }
+    },
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      javascript: {
+        files: '**/*.es6',
+        tasks: ['babel'],
+        options: {
+          spawn: false
+        }
+      }
+    }
+  });
+
   // Clean
   grunt.config.merge({
     clean: ['tmp']
   });
 
   // Register Tasks
-  grunt.registerTask('default', ['sass', 'postcss', 'clean', 'watch']);
+  grunt.registerTask('default', ['sass', 'postcss', 'babel', 'clean', 'watch']);
 };

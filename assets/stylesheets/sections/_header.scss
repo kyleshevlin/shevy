@@ -12,6 +12,21 @@
   top: 0;
   left: 0;
   z-index: zi('header');
+  transition: background .3s ease,
+              color .3s ease,
+              border-color .3s ease;
+
+  .app.index & {
+    background: transparent;
+    color: $c-white;
+    border-color: transparent;
+  }
+
+  .app.index.has-solid-header & {
+    background: $c-white;
+    color: $c-brand;
+    border-color: $c-light-gray;
+  }
 
   &-heading {
     display: inline-block;
@@ -20,5 +35,16 @@
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
+
+    &-link {
+
+      .app.index & {
+        color: $c-white;
+      }
+
+      .app.index.has-solid-header & {
+        color: $c-brand;
+      }
+    }
   }
 }

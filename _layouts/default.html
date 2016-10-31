@@ -1,3 +1,9 @@
+{% assign body_class = 'app' %}
+
+{% if page.path == 'index.html' %}
+  {% assign body_class = 'app index' %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +13,7 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/dist/app.css">
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Catamaran:100,400,700' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="{{ body_class }}">
   {% include header.html %}
 
   {% if page.path == 'index.html' %}
@@ -21,5 +27,8 @@
   </div>
 
   {% include footer.html %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+  <script src="{{ site.baseurl }}/dist/app.js"></script>
 </body>
 </html>

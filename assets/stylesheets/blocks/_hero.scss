@@ -8,6 +8,7 @@
   text-align: center;
   padding-bottom: 56.5%;
   position: relative;
+  overflow: hidden;
 
   &-background {
     background: $c-dark-brand;
@@ -16,6 +17,12 @@
     right: 0;
     bottom: 0;
     left: 0;
+    opacity: 0;
+    transition: opacity .5s ease;
+
+    .is-trianglified & {
+      opacity: 1;
+    }
   }
 
   &-content {
@@ -24,6 +31,12 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity .5s ease;
+
+    .is-trianglified & {
+      opacity: 1;
+    }
   }
 
   &-heading {

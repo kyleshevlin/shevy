@@ -13,6 +13,14 @@
     &-link {
       display: block;
       padding: bs(.25);
+
+      .app.index & {
+        color: $c-white;
+      }
+
+      .app.index.has-solid-header & {
+        color: $c-brand;
+      }
     }
   }
 }

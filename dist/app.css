@@ -686,6 +686,18 @@ h6 {
   top: 0;
   left: 0;
   z-index: 2;
+  -webkit-transition: background .3s ease, color .3s ease, border-color .3s ease;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+.app.index .header {
+  background: transparent;
+  color: #fff;
+  border-color: transparent;
+}
+.app.index.has-solid-header .header {
+  background: #fff;
+  color: #33a1cc;
+  border-color: #eff4f5;
 }
 .header-heading {
   display: inline-block;
@@ -694,6 +706,12 @@ h6 {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
+}
+.app.index .header-heading-link {
+  color: #fff;
+}
+.app.index.has-solid-header .header-heading-link {
+  color: #33a1cc;
 }
 
 .footer {
@@ -715,6 +733,12 @@ h6 {
   display: block;
   padding: 0.3825rem;
 }
+.app.index .nav-item-link {
+  color: #fff;
+}
+.app.index.has-solid-header .nav-item-link {
+  color: #33a1cc;
+}
 
 .hero {
   background: #144052;
@@ -722,6 +746,7 @@ h6 {
   text-align: center;
   padding-bottom: 56.5%;
   position: relative;
+  overflow: hidden;
 }
 .hero-background {
   background: #144052;
@@ -730,6 +755,12 @@ h6 {
   right: 0;
   bottom: 0;
   left: 0;
+  opacity: 0;
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+.is-trianglified .hero-background {
+  opacity: 1;
 }
 .hero-content {
   width: 100%;
@@ -738,6 +769,12 @@ h6 {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  opacity: 0;
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+.is-trianglified .hero-content {
+  opacity: 1;
 }
 .hero-heading {
   font-size: 65px;
