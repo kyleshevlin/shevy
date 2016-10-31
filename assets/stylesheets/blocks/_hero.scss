@@ -6,9 +6,13 @@
   background: $c-dark-brand;
   color: $c-white;
   text-align: center;
-  padding-bottom: 56.5%;
+  padding-bottom: 100%;
   position: relative;
   overflow: hidden;
+
+  @include bp(alpha) {
+    padding-bottom: 56.5%;
+  }
 
   &-background {
     background: $c-dark-brand;
@@ -54,6 +58,17 @@
 
   &-subheading {
     text-shadow: 0 0 15px black(.5);
-    margin-bottom: 0;
+    margin-bottom: bs(.5);
+  }
+
+  &-buttons {
+
+    &-item {
+      display: inline-block;
+
+      .github-button {
+        color: transparent;
+      }
+    }
   }
 }

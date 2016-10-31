@@ -975,9 +975,14 @@ code.highlighter-rouge {
   background: #144052;
   color: #fff;
   text-align: center;
-  padding-bottom: 56.5%;
+  padding-bottom: 100%;
   position: relative;
   overflow: hidden;
+}
+@media (min-width: 521px) {
+  .hero {
+    padding-bottom: 56.5%;
+  }
 }
 .hero-background {
   background: #144052;
@@ -1022,7 +1027,13 @@ code.highlighter-rouge {
 }
 .hero-subheading {
   text-shadow: 0 0 15px black(0.5);
-  margin-bottom: 0;
+  margin-bottom: 0.765rem;
+}
+.hero-buttons-item {
+  display: inline-block;
+}
+.hero-buttons-item .github-button {
+  color: transparent;
 }
 
 .btn, .btn--ghost_on_dark, input[type="submit"] {
