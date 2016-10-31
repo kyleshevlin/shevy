@@ -1,3 +1,27 @@
+function debounce (func, wait, immediate = false) {
+  let timeout
+
+  return function() {
+    const context = this
+    const args = arguments
+    const later = () => {
+      timeout = null
+
+      if (!immediate) {
+        func.apply(context, args)
+      }
+    }
+
+    const callNow = immediate && !timeout
+
+    clearTimeout(timeout)
+
+    timeout = setTimeout(later, wait)
+
+    if (callNow) func.apply(context, args)
+  }
+}
+
 const shevy = () => {
   if (isHome()) {
     trianglify()
@@ -21,13 +45,14 @@ const trianglify = () => {
   const background = document.querySelector('.js-hero-background')
 
   background.appendChild(canvas)
+
   setTimeout(function() {
     document.body.classList.add('is-trianglified')
   }, 350)
 }
 
 const headerState = () => {
-  const onScroll = () => {
+  const calcDistance = () => {
     const scrollTop = window.scrollY
     const header = document.querySelector('.js-header')
     const headerHeight = header.offsetHeight
@@ -43,6 +68,8 @@ const headerState = () => {
     }
   }
 
+  const onScroll = debounce(calcDistance, 17)
+
   document.addEventListener('touchmove', onScroll)
   window.addEventListener('scroll', onScroll)
 }
@@ -55,4 +82,4 @@ const ready = (fn) => {
   }
 }
 
-ready(shevy());
+ready(shevy())

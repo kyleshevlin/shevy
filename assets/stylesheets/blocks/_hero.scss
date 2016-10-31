@@ -40,15 +40,20 @@
   }
 
   &-heading {
-    font-size: 65px;
+    font-size: 48px;
     font-weight: 700;
     text-shadow: 0 2px 15px black(.5);
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: bs(.5);
+
+    @include bp(alpha) {
+      font-size: 64px;
+    }
   }
 
   &-subheading {
     text-shadow: 0 0 15px black(.5);
+    margin-bottom: 0;
   }
 }

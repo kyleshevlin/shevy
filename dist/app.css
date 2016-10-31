@@ -777,15 +777,21 @@ h6 {
   opacity: 1;
 }
 .hero-heading {
-  font-size: 65px;
+  font-size: 48px;
   font-weight: 700;
   text-shadow: 0 2px 15px black(0.5);
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0.765rem;
 }
+@media (min-width: 521px) {
+  .hero-heading {
+    font-size: 64px;
+  }
+}
 .hero-subheading {
   text-shadow: 0 0 15px black(0.5);
+  margin-bottom: 0;
 }
 
 .btn, .btn--ghost_on_dark, input[type="submit"] {
