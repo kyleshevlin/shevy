@@ -38,6 +38,13 @@ $shevy: (
   proximity-factor: .85
 );
 
+$shevy-intro: (
+  base-font-size: 1.25rem,
+  base-line-height: 1.8,
+  margin-bottom: true,
+  proximity: true
+);
+
 $shevy-large: (
   base-font-size: 15px,
   base-line-height: 2,
@@ -97,6 +104,7 @@ $z-indexes: (
 // Sizes
 $s-header-height: 56px;
 $s-header-height-small: 65px;
+$s-header-height-large: 76px;
 
 // Spacing
 $bs: bs();
@@ -104,4 +112,10 @@ $bs: bs();
 // Condo Map
 $condo: (
   columns: 4
+);
+
+$condo-offers: (
+  columns: 3,
+  gutters: 1/8,
+  gutter-position: split
 );

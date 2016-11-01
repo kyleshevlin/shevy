@@ -21,7 +21,6 @@ h6 {
   @include content;
 }
 
-
 .large {
   @include headings($shevy-large);
   @include content($shevy-large);

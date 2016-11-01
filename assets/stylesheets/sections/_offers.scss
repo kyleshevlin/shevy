@@ -1,0 +1,66 @@
+//////////////////////////////
+// Offers
+//////////////////////////////
+
+.offers {
+  background: $c-light-gray;
+  padding: bs(2) 0;
+
+  .container {
+
+    @include bp(charlie) {
+      @include container(90%);
+    }
+  }
+
+  @include bp(charlie) {
+    padding: bs(4) 0;
+  }
+
+  &-header {
+    text-align: center;
+
+    @include bp(bravo) {
+      margin-bottom: bs(2);
+    }
+
+    @include bp(charlie) {
+      margin-bottom: bs(4);
+    }
+
+    &-heading {}
+  }
+
+  &-content {
+    @include clearfix;
+  }
+
+  &-item {
+    margin-bottom: bs(2);
+
+    @include bp(charlie) {
+      @include with-layout($condo-offers) {
+        float: left;
+        width: span(1, wide);
+        border-right: 1px solid $c-white;
+        padding: 0 gutters(1);
+      }
+    }
+
+    &:last-child {
+
+      @include bp(charlie) {
+        border-right: none;
+      }
+    }
+
+    &-header {
+
+      &-heading {
+        font-weight: bold;
+      }
+    }
+
+    &-content {}
+  }
+}

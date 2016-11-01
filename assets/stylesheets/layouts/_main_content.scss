@@ -3,6 +3,15 @@
 //////////////////////////////
 
 .main_content {
-  padding: bs() 0;
+  min-height: 80vh;
+  padding: bs(2) 0;
   margin-top: $s-header-height;
+
+  @include bp(alpha) {
+    margin-top: $s-header-height-small;
+  }
+
+  @include bp(delta) {
+    margin-top: $s-header-height-large;
+  }
 }

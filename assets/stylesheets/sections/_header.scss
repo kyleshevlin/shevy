@@ -20,6 +20,10 @@
     height: $s-header-height-small;
   }
 
+  @include bp(delta) {
+    height: $s-header-height-large;
+  }
+
   .app.index & {
     background: transparent;
     color: $c-white;

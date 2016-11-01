@@ -1,0 +1,12 @@
+//////////////////////////////
+// Intro
+//////////////////////////////
+
+.intro {
+  @include content($shevy-intro);
+  padding: bs(2) 0 bs();
+
+  @include bp(charlie) {
+    padding: bs(4) 0 bs(3);
+  }
+}

@@ -1,0 +1,19 @@
+//////////////////////////////
+// Get Started
+//////////////////////////////
+
+.get_started {
+  text-align: center;
+  padding: bs(2) 0;
+
+  @include bp(charlie) {
+    padding: bs(4) 0;
+  }
+
+  &-header {
+
+    &-heading {}
+  }
+
+  &-content {}
+}

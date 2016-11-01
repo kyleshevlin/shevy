@@ -45,7 +45,7 @@ var isHome = function isHome() {
 
 var trianglify = function trianglify() {
   var pattern = Trianglify({
-    width: 1200,
+    width: 2000,
     height: 1200,
     x_colors: ['#144052', '#33a1cc', '#144052'],
     y_colors: ['#144052', '#000000']

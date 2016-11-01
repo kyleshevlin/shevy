@@ -3,17 +3,17 @@
 //////////////////////////////
 
 .container {
-  @include container(80%);
+  @include container(85%);
 
   @include bp(bravo) {
-    @include container(70%);
+    @include container(75%);
   }
 
   @include bp(charlie) {
-    @include container(60%);
+    @include container(67%);
   }
 
   @include bp(delta) {
-    @include container(50%);
+    @include container(60%);
   }
 }

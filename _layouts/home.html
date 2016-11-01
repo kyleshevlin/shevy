@@ -7,18 +7,14 @@
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Catamaran:100,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ site.baseurl }}/dist/app.css">
 </head>
-<body>
+<body class="app index">
   {% include header.html %}
 
   {% if page.path == 'index.html' %}
     {% include hero.html %}
   {% endif %}
 
-  <div class="main_content">
-    <div class="container">
-      {{ content }}
-    </div>
-  </div>
+  {{ content }}
 
   {% include footer.html %}
 
