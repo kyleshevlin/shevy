@@ -1,0 +1,13 @@
+//////////////////////////////
+// Callout Example
+//////////////////////////////
+
+$callout-shevy: (
+  base-font-size: 2em,
+  base-line-height: 1.3
+);
+
+.callout-example {
+  @include content($callout-shevy);
+  @include baseline-grid(41.6);
+}

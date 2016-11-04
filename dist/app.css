@@ -866,6 +866,35 @@ h6 {
   display: none;
 }
 
+.callout-example {
+  position: relative;
+}
+.callout-example p,
+.callout-example ol,
+.callout-example ul,
+.callout-example pre {
+  font-size: 2em;
+  line-height: 1.3;
+  margin-bottom: 1.3em;
+}
+.callout-example:after {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  content: '';
+  display: block;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(http://basehold.it/image.php?height=41.6) repeat top left;
+}
+.callout-example:active:after {
+  display: none;
+}
+
 div.highlighter-rouge {
   padding: 0.3825rem;
   margin-bottom: 1.53rem;
