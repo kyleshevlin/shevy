@@ -16,6 +16,14 @@ h6 {
   font-weight: 400;
 }
 
+.docs {
+
+  h3,
+  h4 {
+    margin-top: bs(2);
+  }
+}
+
 .shevy {
   @include headings;
   @include content;

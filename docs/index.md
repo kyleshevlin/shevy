@@ -1,5 +1,6 @@
 ---
 title: 'Shevy | Documentation'
+layout: docs
 ---
 
 ## Documentation

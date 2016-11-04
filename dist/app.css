@@ -347,6 +347,11 @@ h6 {
   font-weight: 400;
 }
 
+.docs h3,
+.docs h4 {
+  margin-top: 3.06rem;
+}
+
 .shevy h1 {
   font-size: 2.4414rem;
   line-height: 2.7rem;
@@ -830,10 +835,41 @@ h6 {
   }
 }
 
+.standard_implementation {
+  position: relative;
+  padding: 3.06rem 0 1.53rem;
+  margin-bottom: 1.53rem;
+}
+.standard_implementation p,
+.standard_implementation ol,
+.standard_implementation ul,
+.standard_implementation pre {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+.standard_implementation:after {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  content: '';
+  display: block;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(http://basehold.it/image.php?height=24) repeat top left;
+}
+.standard_implementation:active:after {
+  display: none;
+}
+
 div.highlighter-rouge {
   padding: 0.3825rem;
   margin-bottom: 1.53rem;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 div.highlighter-rouge .highlight {
   margin-bottom: 0;
@@ -1136,6 +1172,7 @@ code.highlighter-rouge {
 }
 .hero-subheading {
   text-shadow: 0 0 15px black(0.5);
+  margin-top: 0;
   margin-bottom: 0.765rem;
 }
 .hero-buttons-item {
