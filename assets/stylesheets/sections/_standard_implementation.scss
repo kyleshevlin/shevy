@@ -14,7 +14,15 @@ $standard_implementation: (
 
 .standard_implementation {
   @include content($standard_implementation);
-  @include baseline-grid(24);
+  @include baseline-grid(20.4);
   padding: bs(2) 0 bs();
   margin-bottom: bs();
+
+  @include bp(alpha) {
+    @include baseline-grid(24);
+  }
+
+  @include bp(delta) {
+    @include baseline-grid(27.6);
+  }
 }

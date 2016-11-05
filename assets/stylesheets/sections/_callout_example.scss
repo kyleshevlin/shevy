@@ -9,5 +9,13 @@ $callout-shevy: (
 
 .callout-example {
   @include content($callout-shevy);
-  @include baseline-grid(41.6);
+  @include baseline-grid(35.4);
+
+  @include bp(alpha) {
+    @include baseline-grid(41.6);
+  }
+
+  @include bp(delta) {
+    @include baseline-grid(47.8);
+  }
 }

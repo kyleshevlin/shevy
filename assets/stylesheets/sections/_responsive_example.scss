@@ -30,4 +30,8 @@ $responsive-large: (
     @include content($responsive-large);
     @include baseline-grid(57.6);
   }
+
+  @include bp(delta) {
+    @include baseline-grid(66.2);
+  }
 }
