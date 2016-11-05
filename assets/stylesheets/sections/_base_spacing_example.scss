@@ -1,0 +1,28 @@
+//////////////////////////////
+// Base Spacing Example
+//////////////////////////////
+
+$base-spacing-shevy: (
+  base-font-size: 18px,
+  base-line-height: 1.8
+);
+
+@function my-bs($factor: 1) { // Default factor of one
+  @return bs($factor, $base-spacing-shevy);
+}
+
+.base_spacing_example {
+  @include content($base-spacing-shevy);
+  @include baseline-grid(32.4);
+
+  &-box {
+    background: hsl(197, 60%, 50%); // My "brand" color
+    color: white;
+    padding: my-bs(2); // Will return 18px * 1.8 or 32.4px
+    margin: my-bs();
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

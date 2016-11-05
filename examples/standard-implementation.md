@@ -31,11 +31,11 @@ $shevy: (
 
 Under the hood, Shevy will merge your `$shevy` map with the defaults and then compile the math for you. The only thing you need to be sure to do is to declare the Sass map before calling the mixins, but this is just a principle of using Sass and not specific to Shevy.
 
-Let's look at an a couple paragraphs with the default settings and a background provided by [Basehold.it](http://basehold.it/) to show vertical rhythm of the text.
+Let's look at an a couple paragraphs (provided by some famous book quotes throughout these examples) with the default settings and a background provided by [Basehold.it](http://basehold.it/) to show vertical rhythm of the text.
 
 <div class="standard_implementation">
   <p>
-    The font size is in <code>ems</code> and the font scale is no special arithmetic pattern, just evenly spaced scaling. You can look up font scales on your own and even combine this package with other Sass packages for scaling.
+    It sounds plausible enough tonight, but wait until tomorrow. Wait for the common sense of the morning.
   </p>
 
   <p>

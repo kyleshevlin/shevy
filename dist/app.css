@@ -984,6 +984,44 @@ h6 {
   }
 }
 
+.base_spacing_example {
+  position: relative;
+}
+.base_spacing_example p,
+.base_spacing_example ol,
+.base_spacing_example ul,
+.base_spacing_example pre {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 32.4px;
+}
+.base_spacing_example:after {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  content: '';
+  display: block;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(http://basehold.it/image.php?height=32.4) repeat top left;
+}
+.base_spacing_example:active:after {
+  display: none;
+}
+.base_spacing_example-box {
+  background: #33a1cc;
+  color: white;
+  padding: 64.8px;
+  margin: 32.4px;
+}
+.base_spacing_example-box p {
+  margin-bottom: 0;
+}
+
 div.highlighter-rouge {
   padding: 0.3825rem;
   margin-bottom: 1.53rem;
