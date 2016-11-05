@@ -21,7 +21,7 @@ Next, in our Sass we'll declare a few different Shevy maps and apply them in sev
 
 ```scss
 $responsive-small: (
-  base-font-size: 14px,
+  base-font-size: 12px,
   base-line-height: 1.4
 );
 
@@ -39,17 +39,17 @@ $responsive-large: (
   @include content($responsive-small);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 521px) {
   .responsive_example {
     @include content($responsive-medium);
   }
 }
-
-@media (min-width: 1000px) {
+@media (min-width: 769px) {
   .responsive_example {
     @include content($responsive-large);
   }
 }
+
 ```
 
 Then, we can see the styles update as we resize the browser. Let's see it in action:
