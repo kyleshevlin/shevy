@@ -1,0 +1,33 @@
+//////////////////////////////
+// Responsive Example
+//////////////////////////////
+
+$responsive-small: (
+  base-font-size: 12px,
+  base-line-height: 1.4
+);
+
+$responsive-medium: (
+  base-font-size: 20px,
+  base-line-height: 1.6
+);
+
+$responsive-large: (
+  base-font-size: 2em,
+  base-line-height: 1.8
+);
+
+.responsive_example {
+  @include content($responsive-small);
+  @include baseline-grid(16.8);
+
+  @include bp(alpha) {
+    @include content($responsive-medium);
+    @include baseline-grid(32);
+  }
+
+  @include bp(bravo) {
+    @include content($responsive-large);
+    @include baseline-grid(57.6);
+  }
+}

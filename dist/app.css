@@ -895,6 +895,95 @@ h6 {
   display: none;
 }
 
+.responsive_example {
+  position: relative;
+}
+.responsive_example p,
+.responsive_example ol,
+.responsive_example ul,
+.responsive_example pre {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 16.8px;
+}
+.responsive_example:after {
+  position: absolute;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  content: '';
+  display: block;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(http://basehold.it/image.php?height=16.8) repeat top left;
+}
+.responsive_example:active:after {
+  display: none;
+}
+@media (min-width: 521px) {
+  .responsive_example {
+    position: relative;
+  }
+  .responsive_example p,
+  .responsive_example ol,
+  .responsive_example ul,
+  .responsive_example pre {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .responsive_example:after {
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: 9999;
+    content: '';
+    display: block;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(http://basehold.it/image.php?height=32) repeat top left;
+  }
+  .responsive_example:active:after {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .responsive_example {
+    position: relative;
+  }
+  .responsive_example p,
+  .responsive_example ol,
+  .responsive_example ul,
+  .responsive_example pre {
+    font-size: 2em;
+    line-height: 1.8;
+    margin-bottom: 1.8em;
+  }
+  .responsive_example:after {
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: 9999;
+    content: '';
+    display: block;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(http://basehold.it/image.php?height=57.6) repeat top left;
+  }
+  .responsive_example:active:after {
+    display: none;
+  }
+}
+
 div.highlighter-rouge {
   padding: 0.3825rem;
   margin-bottom: 1.53rem;
