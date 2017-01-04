@@ -1,7 +1,16 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-copyright">
-      Copyright @2015-2016 Kyle Shevlin. All Rights Reserved. Free to use under the MIT license.
+      Copyright @<span id="copyrightDates">2017</span> Kyle Shevlin. All Rights Reserved. Free to use under the MIT license.
     </div>
   </div>
 </footer>
+
+<script>
+  var copyrightDates = document.getElementById('copyrightDates');
+  var startYear = 2015;
+  var currentYear = new Date().getFullYear()
+  var yearsString = startYear + '-' + currentYear
+
+  copyrightDates.innerText = yearsString
+</script>
