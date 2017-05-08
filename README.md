@@ -196,7 +196,7 @@ There are several public functions available to the developer to use as they ple
 
 ### base-line-height
 
-`base-line-height()` will return the `base-line-height` setting in the $shevy map, or the map passed ot the function as an argument.
+`base-line-height()` will return the `base-line-height` setting in the $shevy map, or the map passed to the function as an argument.
 
 ### line-height-spacing
 
